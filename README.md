@@ -1,4 +1,4 @@
 Symlinks:
 
-	ln -s ~/.vim ~/configs/.vim
+	ln -s ~/configs/.vim ~/.vim
 
