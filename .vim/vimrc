@@ -1,5 +1,9 @@
 set nocompatible
 
+
+"shared clipboard
+set clipboard=unnamed
+
 "what this does is allow vim to manage multiple buffers effectively.
 set hidden
 
