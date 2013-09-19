@@ -4,7 +4,15 @@ set nocompatible
 set hidden
 
 "activates the mouse
-set mouse=a
+set mouse=nirc
+
+"the bottom line in your editor will show you information about the current
+"command going on.
+set showcmd
+
+"Tab completion for vim commands
+set wildmenu
+set wildmode=list:longest,full
 
 "Keep a longer history
 set history=7000
@@ -18,9 +26,6 @@ set title
 "Set an colorscheme
 colorscheme desert
 set background=dark
-
-" select when using the mouse
-set selectmode=mouse
 
 "Intuitive backspacing in insert mode
 set backspace=indent,eol,start
@@ -40,6 +45,19 @@ set t_vb=
 
 " Visual cursor
 set cursorline
+
+" keep at least 4 lines around the cursor
+set scrolloff=4
+
+" set backup and tmp dir
+set backup
+set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
+
+" or rather turn backup/swap off..
+set nobackup
+set nowb
+set noswapfile
 
 " linenumber
 set number
@@ -71,4 +89,4 @@ let g:mapleader = ","
 nmap <leader>w :w!<cr>
 
 " When vimrc is edited, reload it
-autocmd! bufwritepost vimrc source ~/.vim_runtime/vimrc
+autocmd! bufwritepost .vimrc source %
