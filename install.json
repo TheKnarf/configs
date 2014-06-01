@@ -2,7 +2,8 @@
     {
         "link": {
             "~/.vimrc": "vimrc",
-            "~/.vim": "vim/"
+            "~/.vim": "vim/",
+	    "~/.osx": "osx"
         }
     },
     {
