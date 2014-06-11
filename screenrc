@@ -1,5 +1,9 @@
 startup_message off
 
+term screen-256color
+defutf8 on
+defc1 off
+
 hardstatus string "%h"
 
 backtick 101 1 1 osascript -e 'tell application "Spotify" to name of current track as string'
