@@ -13,7 +13,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Include plugins
-Plugin 'bling/vim-airline'
+Plugin 'bling/vim-airline'   " Nice statusbar plugin
+Plugin 'tpope/vim-fugitive'  " Git wrapper
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
