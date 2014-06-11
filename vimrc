@@ -1,5 +1,25 @@
-set nocompatible
+" ----------------------------------------------
+"              Setting up Vundle
+"            - Vim plugin manager -
+" ----------------------------------------------
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Include plugins
+Plugin 'bling/vim-airline'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" ----------------------------------------------
 
 "shared clipboard
 set clipboard=unnamed
