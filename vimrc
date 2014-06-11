@@ -21,6 +21,9 @@ filetype plugin indent on    " required
 
 " ----------------------------------------------
 
+"Utf-8 encoding as standard
+set encoding=utf-8
+
 "shared clipboard
 set clipboard=unnamed
 
@@ -89,7 +92,9 @@ set numberwidth=6
 hi LineNr ctermfg=lightgray ctermbg=darkgray
 
 "Statusline
-set statusline=%t%r\ (%{FileSize()})\ Format:\ %{&ff}%=%c,%l/%L
+let g:airline_powerline_fonts = 1
+
+"set statusline=%t%r\ (%{FileSize()})\ Format:\ %{&ff}%=%c,%l/%L
 set laststatus=2
 
 function! FileSize()
