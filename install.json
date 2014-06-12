@@ -1,6 +1,8 @@
 [
     {
         "link": {
+	    "/usr/local/bin/spotify": "spotify.sh",
+	    "~/.screenrc": "screenrc",
             "~/.vimrc": "vimrc",
             "~/.vim": "vim/",
 	    "~/.osx": "osx"

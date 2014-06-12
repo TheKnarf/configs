@@ -6,7 +6,9 @@ defc1 off
 
 hardstatus string "%h"
 
-backtick 101 1 1 osascript -e 'tell application "Spotify" to name of current track as string'
-backtick 102 1 1 osascript -e 'tell application "Spotify" to artist of current track as string'
+#backtick 101 1 1 osascript -e 'tell application "Spotify" to name of current track as string'
+#backtick 102 1 1 osascript -e 'tell application "Spotify" to artist of current track as string'
+backtick 101 1 1 spotify
 
-caption always "%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%101` - %{m}%102`%{-} %=%d %M %0c %{g}%H%{-}"
+#caption always "%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%101` - %{m}%102`%{-} %=%d %M %0c %{g}%H%{-}"
+caption always "%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw} %=%101` %=%d %M %0c %{g}%H%{-}"
