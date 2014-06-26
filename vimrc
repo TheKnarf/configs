@@ -13,12 +13,16 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Include plugins
-Plugin 'bling/vim-airline'   " Nice statusbar plugin
-Plugin 'tpope/vim-fugitive'  " Git wrapper
+Plugin 'bling/vim-airline'   	" Nice statusbar plugin
+Plugin 'tpope/vim-fugitive'  	" Git wrapper
+Plugin 'Rip-Rip/clang_complete' " Clang autocomplete for C and C++
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" Settings for some bundles
+let g:clang_library_path = "/Library/Developer/CommandLineTools/usr/lib/"
 
 " ----------------------------------------------
 
@@ -117,6 +121,7 @@ let g:mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
+nmap <leader>x :x<cr>
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost .vimrc source %
