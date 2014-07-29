@@ -1,111 +1,111 @@
-" ----------------------------------------------
-"              Setting up Vundle
-"            - Vim plugin manager -
-" ----------------------------------------------
-set nocompatible              " be iMproved, required
-filetype off                  " required
+"-  ---------------------------------------------
+"-               Setting up Vundle
+"-             - Vim plugin manager -
+"-  ----------------------------------------------
+set nocompatible              "  be iMproved, required
+filetype off                  "  required
 
-" set the runtime path to include Vundle and initialize
+"   set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle, required
+"   let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" Include plugins
-Plugin 'bling/vim-airline'   	" Nice statusbar plugin
-Plugin 'tpope/vim-fugitive'  	" Git wrapper
-Plugin 'Rip-Rip/clang_complete' " Clang autocomplete for C and C++
+"   Include plugins
+Plugin 'bling/vim-airline'   	"  Nice statusbar plugin
+Plugin 'tpope/vim-fugitive'  	"  Git wrapper
+Plugin 'Rip-Rip/clang_complete' "  Clang autocomplete for C and C++
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+"   All of your Plugins must be added before the following line
+call vundle#end()            "  required
+filetype plugin indent on    "  required
 
-" Settings for some bundles
+"   Settings for some bundles
 let g:clang_library_path = "/Library/Developer/CommandLineTools/usr/lib/"
 
-" ----------------------------------------------
+"------------------------------------------------
 
-"Utf-8 encoding as standard
+"- Utf-8 encoding as standard
 set encoding=utf-8
 
-"shared clipboard
+"- shared clipboard
 set clipboard=unnamed
 
-"what this does is allow vim to manage multiple buffers effectively.
+"- what this does is allow vim to manage multiple buffers effectively.
 set hidden
 
-"activates the mouse
+"- activates the mouse
 set mouse=nirc
 
-"the bottom line in your editor will show you information about the current
-"command going on.
+"- the bottom line in your editor will show you information about the current
+"  command going on.
 set showcmd
 
-"Tab completion for vim commands
+"- Tab completion for vim commands
 set wildmenu
 set wildmode=list:longest,full
 
-"Keep a longer history
+"- Keep a longer history
 set history=7000
 
-"Set to auto read when a file is changed from the outside
+"- Set to auto read when a file is changed from the outside
 set autoread
 
-"Set terminal title
+"- Set terminal title
 set title
 
-"Set an colorscheme
+"- Set an colorscheme
 colorscheme desert
 set background=dark
 
-"Intuitive backspacing in insert mode
+"- Intuitive backspacing in insert mode
 set backspace=indent,eol,start
 
-" File-type highlighting and configuration.
-" Run :filetype (without args) to see what you may have
-" to turn on yourself, or just set them all to be sure.
+"-  File-type highlighting and configuration.
+"   Run :filetype (without args) to see what you may have
+"   to turn on yourself, or just set them all to be sure.
 syntax on
 filetype on
 filetype plugin on
 filetype indent on
 
-" Turns of that anoying bell sound
+"-  Turns of that anoying bell sound
 set noerrorbells 
 set visualbell
 set t_vb= 
 
-" Visual cursor
+"-  Visual cursor
 set cursorline
 
-" keep at least 4 lines around the cursor
+"-  keep at least 4 lines around the cursor
 set scrolloff=4
 
-" set backup and tmp dir
+"-  set backup and tmp dir
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
 
-" or rather turn backup/swap off..
+"-  or rather turn backup/swap off..
 set nobackup
 set nowb
 set noswapfile
 
-" linenumber
+"-  linenumber
 set number
 set numberwidth=6
 hi LineNr ctermfg=lightgray ctermbg=darkgray
 
-"Statusline
+"- Statusline
 let g:airline_powerline_fonts = 1
 
-"set statusline=%t%r\ (%{FileSize()})\ Format:\ %{&ff}%=%c,%l/%L
+"- set statusline=%t%r\ (%{FileSize()})\ Format:\ %{&ff}%=%c,%l/%L
 set laststatus=2
 
 function! FileSize()
      let bytes = getfsize(expand("%:p"))
      if bytes <= 0
-         return ""
+         return "- "
      endif
      if bytes < 1024
          return bytes
@@ -114,14 +114,15 @@ function! FileSize()
      endif
 endfunction
 
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
+"-  With a map leader it's possible to do extra key combinations
+"   like <leader>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
 
-" Fast saving
-nmap <leader>w :w!<cr>
-nmap <leader>x :x<cr>
+"-  Fast saving
+nnoremap <leader>w :w!<cr>
+nnoremap <leader>x :x!<cr>
+nnoremap <leader>q :q<cr>
 
-" When vimrc is edited, reload it
+"-  When vimrc is edited, reload it
 autocmd! bufwritepost .vimrc source %
