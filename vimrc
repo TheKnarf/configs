@@ -1,7 +1,7 @@
-"-  ---------------------------------------------
+"   ---------------------------------------------
 "-               Setting up Vundle
-"-             - Vim plugin manager -
-"-  ----------------------------------------------
+"              - Vim plugin manager -
+"   ---------------------------------------------
 set nocompatible              "  be iMproved, required
 filetype off                  "  required
 
