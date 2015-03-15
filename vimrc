@@ -22,7 +22,7 @@ call vundle#end()            "  required
 filetype plugin indent on    "  required
 
 "   Settings for some bundles
-let g:clang_library_path = "/Library/Developer/CommandLineTools/usr/lib/"
+let g:clang_library_path = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/"
 
 "------------------------------------------------
 
