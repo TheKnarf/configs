@@ -14,6 +14,7 @@ echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
+export GOPATH=$HOME/Dropbox/golang
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/

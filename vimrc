@@ -13,9 +13,11 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 "   Include plugins
-Plugin 'bling/vim-airline'   	"  Nice statusbar plugin
-Plugin 'tpope/vim-fugitive'  	"  Git wrapper
-Plugin 'Rip-Rip/clang_complete' "  Clang autocomplete for C and C++
+Plugin 'bling/vim-airline'   		"  Nice statusbar plugin
+Plugin 'tpope/vim-fugitive'  		"  Git wrapper
+Plugin 'Rip-Rip/clang_complete' 	"  Clang autocomplete for C and C++
+Plugin 'mattn/emmet-vim' 			"  Zen support 
+Plugin 'vim-scripts/loremipsum'  "  Lorum ipsum plugin
 
 "   All of your Plugins must be added before the following line
 call vundle#end()            "  required
@@ -32,13 +34,13 @@ set encoding=utf-8
 "- shared clipboard
 set clipboard=unnamed
 
-"- what this does is allow vim to manage multiple buffers effectively.
+"- What this does is allow vim to manage multiple buffers effectively.
 set hidden
 
-"- activates the mouse
+"- Activates the mouse
 set mouse=nirc
 
-"- the bottom line in your editor will show you information about the current
+"- The bottom line in your editor will show you information about the current
 "  command going on.
 set showcmd
 
@@ -71,9 +73,9 @@ match ErrorMsg '\%>79v.\+'
 "- Intuitive backspacing in insert mode
 set backspace=indent,eol,start
 
-"-  File-type highlighting and configuration.
-"   Run :filetype (without args) to see what you may have
-"   to turn on yourself, or just set them all to be sure.
+"- File-type highlighting and configuration.
+"  Run :filetype (without args) to see what you may have
+"  to turn on yourself, or just set them all to be sure.
 syntax on
 filetype on
 filetype plugin on
@@ -137,7 +139,7 @@ augroup END
 
 
 
-"-  Turns of that anoying bell sound
+"- Turns of that anoying bell sound
 set noerrorbells 
 set visualbell
 set t_vb= 
@@ -158,7 +160,7 @@ set nobackup
 set nowb
 set noswapfile
 
-"- linenumber
+"- Linenumber
 set number
 set numberwidth=6
 hi LineNr ctermfg=lightgray ctermbg=darkgray
@@ -166,7 +168,7 @@ hi LineNr ctermfg=lightgray ctermbg=darkgray
 "- Statusline
 let g:airline_powerline_fonts = 1
 
-"- set statusline=%t%r\ (%{FileSize()})\ Format:\ %{&ff}%=%c,%l/%L
+"- Set statusline=%t%r\ (%{FileSize()})\ Format:\ %{&ff}%=%c,%l/%L
 set laststatus=2
 
 function! FileSize()
@@ -211,5 +213,5 @@ set pastetoggle=<leader>z
 " Sudo write by w!!
 cmap w!! w !sudo tee % >/dev/null
 
-"-  When vimrc is edited, reload it
+"- When vimrc is edited, reload it
 autocmd! bufwritepost .vimrc source %
