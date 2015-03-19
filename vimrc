@@ -1,7 +1,7 @@
-"-  ---------------------------------------------
+"   ---------------------------------------------
 "-               Setting up Vundle
-"-             - Vim plugin manager -
-"-  ----------------------------------------------
+"              - Vim plugin manager -
+"   ---------------------------------------------
 set nocompatible              "  be iMproved, required
 filetype off                  "  required
 
@@ -27,6 +27,7 @@ filetype plugin indent on    "  required
 let g:clang_library_path = "/Library/Developer/CommandLineTools/usr/lib/"
 let g:user_emmet_mode='a'    "enable all function in all mode.
 
+"------------------------------------------------
 
 "- Utf-8 encoding as standard
 set encoding=utf-8
