@@ -25,7 +25,8 @@ filetype plugin indent on    "  required
 
 "   Settings for some bundles
 let g:clang_library_path = "/Library/Developer/CommandLineTools/usr/lib/"
-let g:user_emmet_leader_key='<Tab>'
+let g:user_emmet_mode='a'    "enable all function in all mode.
+
 
 "- Utf-8 encoding as standard
 set encoding=utf-8
@@ -67,8 +68,8 @@ set title
 colorscheme desert
 set background=dark
 
-"- Highlight text which exceed 80 chars in length
-match ErrorMsg '\%>79v.\+'
+"- Highlight text which exceed 120 chars in length
+match ErrorMsg '\%>119v.\+'
 "- Intuitive backspacing in insert mode
 set backspace=indent,eol,start
 

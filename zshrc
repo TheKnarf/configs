@@ -9,12 +9,26 @@ fi
 S1=$'%{\e[0;32m%}%m%{\e[0m%}:%~> '
 export PS1
 
+. `brew --prefix`/etc/profile.d/z.sh
+
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/fl-macbook-retina/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+export GOPATH=$HOME/Dropbox/golang
+export PATH=$PATH:$GOPATH/bin
+
+export JBOSS_HOME=/usr/local/opt/wildfly-as/libexec
+export PATH=${PATH}:${JBOSS_HOME}/bin
+
 #other
 echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
 
+export LC_ALL=en_US.UTF-8  
+export LANG=en_US.UTF-8
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-export GOPATH=$HOME/Dropbox/golang
+
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -63,3 +77,6 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
