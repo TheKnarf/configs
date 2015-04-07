@@ -1,0 +1,13 @@
+[user]
+	name = Frank Lyder bredland
+	email = fl@nyggen.com
+[push]
+	default = simple
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
+[core]
+	editor = /usr/bin/vim
