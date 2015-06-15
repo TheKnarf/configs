@@ -80,3 +80,6 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

@@ -1,5 +1,5 @@
 [user]
-	name = Frank Lyder bredland
+	name = Frank Lyder Bredland
 	email = fl@nyggen.com
 [push]
 	default = simple
@@ -9,5 +9,7 @@
 	prompt = false
 [alias]
 	d = difftool
+	up = pull --rebase
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [core]
 	editor = /usr/bin/vim
