@@ -10,10 +10,12 @@ S1=$'%{\e[0;32m%}%m%{\e[0m%}:%~> '
 export PS1
 
 . `brew --prefix`/etc/profile.d/z.sh
+source /usr/local/share/zsh/site-functions/_aws
 
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/fl-macbook-retina/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
+export DOCKER_HOST=tcp://192.168.42.43:2375
+#export DOCKER_HOST=tcp://192.168.59.103:2376
+#export DOCKER_CERT_PATH=/Users/fl-macbook-retina/.boot2docker/certs/boot2docker-vm
+#export DOCKER_TLS_VERIFY=1
 export GOPATH=$HOME/Dropbox/golang
 export PATH=$PATH:$GOPATH/bin
 

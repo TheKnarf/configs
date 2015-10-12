@@ -88,8 +88,8 @@ inoremap <2-LeftMouse> <esc>za
 
 "- Cpp folding
 augroup filetype_cpp
-	autocmd!
-	autocmd FileType cpp setlocal foldmethod=syntax
+"	autocmd!
+"	autocmd FileType cpp setlocal foldmethod=syntax
 augroup END
 
 "- Make c and cpp files
