@@ -11,5 +11,6 @@
 	d = difftool
 	up = pull --rebase
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	log = ! git log --oneline --color | emojify | less
 [core]
 	editor = /usr/bin/vim

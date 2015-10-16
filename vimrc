@@ -18,6 +18,8 @@ Plugin 'tpope/vim-fugitive'  		"  Git wrapper
 Plugin 'Rip-Rip/clang_complete' 	"  Clang autocomplete for C and C++
 Plugin 'mattn/emmet-vim' 			"  Zen support 
 Plugin 'vim-scripts/loremipsum'  "  Lorum ipsum plugin
+Plugin 'rust-lang/rust.vim'		"  SyntaxHighlighting for Rust
+"Plugin 'phildawes/racer'			"  Racer - code completion for Rust
 
 "   All of your Plugins must be added before the following line
 call vundle#end()            "  required
@@ -27,6 +29,7 @@ filetype plugin indent on    "  required
 let g:clang_library_path = "/Library/Developer/CommandLineTools/usr/lib/"
 let g:user_emmet_mode='a'    "enable all function in all mode.
 
+
 "------------------------------------------------
 
 "- Utf-8 encoding as standard
@@ -34,6 +37,9 @@ set encoding=utf-8
 
 "- shared clipboard
 set clipboard=unnamed
+
+"- Remap jk to <esc>
+inoremap jk <ESC>
 
 "- What this does is allow vim to manage multiple buffers effectively.
 set hidden
@@ -208,7 +214,7 @@ nnoremap <leader>eh :split %:p:h/../defs/%:t:r.h<cr>
 nnoremap <leader>ec :split %:p:h/../src/%:t:r.cpp<cr>
 nnoremap <leader>em :split %:p:h/Makefile<cr>
 
-"- Pastetoggle
+" Pastetoggle
 set pastetoggle=<leader>z
 
 " Sudo write by w!!
