@@ -1,7 +1,9 @@
-Dotbot:
+# Configs
 
-	./setup
+Dot files, setup using dotbot.
 
-Symlinks:
+## Installation
 
-	ln -s ~/configs/zshrc ~/.zshrc
+```
+./setup
+```

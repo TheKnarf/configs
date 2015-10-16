@@ -10,7 +10,7 @@ S1=$'%{\e[0;32m%}%m%{\e[0m%}:%~> '
 export PS1
 
 . `brew --prefix`/etc/profile.d/z.sh
-source /usr/local/share/zsh/site-functions/_aws
+#source /usr/local/share/zsh/site-functions/_aws
 
 export DOCKER_HOST=tcp://192.168.42.43:2375
 #export DOCKER_HOST=tcp://192.168.59.103:2376
