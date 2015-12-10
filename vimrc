@@ -19,6 +19,8 @@ Plugin 'Rip-Rip/clang_complete' 	"  Clang autocomplete for C and C++
 Plugin 'mattn/emmet-vim' 			"  Zen support 
 Plugin 'vim-scripts/loremipsum'  "  Lorum ipsum plugin
 Plugin 'rust-lang/rust.vim'		"  SyntaxHighlighting for Rust
+Plugin 'elzr/vim-json'				"  JSON syntax highlighting
+Plugin 'tpope/vim-dispatch'		"  Run make or other tasks async in the background
 "Plugin 'phildawes/racer'			"  Racer - code completion for Rust
 
 "   All of your Plugins must be added before the following line
