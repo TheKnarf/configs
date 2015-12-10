@@ -22,6 +22,9 @@ export PATH=$PATH:$GOPATH/bin
 export JBOSS_HOME=/usr/local/opt/wildfly-as/libexec
 export PATH=${PATH}:${JBOSS_HOME}/bin
 
+# PHP Composer bin folder
+export PATH=$PATH:./vendor/bin
+
 #other
 echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
 
@@ -80,8 +83,6 @@ export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
-function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
-function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -106,3 +107,12 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 export KEYTIMEOUT=1
 
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/fl-macbook-retina/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/Users/fl-macbook-retina/google-cloud-sdk/completion.zsh.inc'
+
+# Opan Ocaml package manager
+eval `opam config env`
