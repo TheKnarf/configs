@@ -28,7 +28,13 @@ call vundle#end()            "  required
 filetype plugin indent on    "  required
 
 "   Settings for some bundles
-let g:clang_library_path = "/Library/Developer/CommandLineTools/usr/lib/"
+let g:clang_library_path = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/"
+
+let s:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
+if isdirectory(s:clang_library_path)
+	 let g:clang_library_path=s:clang_library_path
+endif
+
 let g:user_emmet_mode='a'    "enable all function in all mode.
 
 
