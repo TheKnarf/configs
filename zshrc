@@ -81,7 +81,10 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=$PATH:/Users/fl-macbook-retina/Dropbox/Projects/depot_tools
+
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 ### Added by the Heroku Toolbelt
@@ -116,3 +119,15 @@ source '/Users/fl-macbook-retina/google-cloud-sdk/completion.zsh.inc'
 
 # Opan Ocaml package manager
 eval `opam config env`
+
+# Google gyp stuff
+
+export CXX=`which clang++`
+export CC=`which clang`
+export CPP="`which clang` -E -std=c++11 -stdlib=libc++"
+export LINK="`which clang++` -std=c++11 -stdlib=libc++"
+export CXX_host=`which clang++`
+export CC_host=`which clang`
+export CPP_host="`which clang` -E"
+export LINK_host=`which clang++`
+export GYP_DEFINES="clang=1 mac_deployment_target=10.9"
