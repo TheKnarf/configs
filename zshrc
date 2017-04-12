@@ -25,6 +25,9 @@ export PATH=${PATH}:${JBOSS_HOME}/bin
 # PHP Composer bin folder
 export PATH=$PATH:./vendor/bin
 
+# Rust bin path
+export PATH=$PATH:~/.cargo/bin
+
 #other
 echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
 
@@ -131,3 +134,16 @@ export CC_host=`which clang`
 export CPP_host="`which clang` -E"
 export LINK_host=`which clang++`
 export GYP_DEFINES="clang=1 mac_deployment_target=10.9"
+
+man() {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+            man "$@"
+}
+export PATH="/usr/local/sbin:$PATH"
