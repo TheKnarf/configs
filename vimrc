@@ -42,7 +42,8 @@ let g:user_emmet_mode='a'    "enable all function in all mode.
 
 "- Utf-8 encoding as standard
 set encoding=utf-8
-
+"- Autowrite
+set autowrite
 "- shared clipboard
 set clipboard=unnamed
 
