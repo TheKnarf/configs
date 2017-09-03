@@ -2,6 +2,7 @@
 	{
     	"link": {
 				"~/.screenrc": "screenrc",
+				"~/.tmux.conf": "tmux.conf",
 	    		"~/.vimrc": "vimrc",
 				"~/.vim": "vim",
 				"~/.emacs.d": "spacemacs",
