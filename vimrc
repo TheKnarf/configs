@@ -13,15 +13,16 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 "   Include plugins
-Plugin 'bling/vim-airline'   		"  Nice statusbar plugin
-Plugin 'tpope/vim-fugitive'  		"  Git wrapper
-Plugin 'Rip-Rip/clang_complete' 	"  Clang autocomplete for C and C++
-Plugin 'mattn/emmet-vim' 			"  Zen support 
-Plugin 'vim-scripts/loremipsum'  "  Lorum ipsum plugin
-Plugin 'rust-lang/rust.vim'		"  SyntaxHighlighting for Rust
-Plugin 'elzr/vim-json'				"  JSON syntax highlighting
-Plugin 'tpope/vim-dispatch'		"  Run make or other tasks async in the background
-"Plugin 'phildawes/racer'			"  Racer - code completion for Rust
+Plugin 'bling/vim-airline'   			"  Nice statusbar plugin
+Plugin 'tpope/vim-fugitive'  			"  Git wrapper
+Plugin 'Rip-Rip/clang_complete' 		"  Clang autocomplete for C and C++
+Plugin 'mattn/emmet-vim' 				"  Zen support 
+Plugin 'vim-scripts/loremipsum'  	"  Lorum ipsum plugin
+Plugin 'rust-lang/rust.vim'			"  SyntaxHighlighting for Rust
+Plugin 'elzr/vim-json'					"  JSON syntax highlighting
+Plugin 'tpope/vim-dispatch'			"  Run make or other tasks async in the background
+"Plugin 'phildawes/racer'				"  Racer - code completion for Rust
+Plugin 'reasonml-editor/vim-reason' "  ReasonML plugin 
 
 "   All of your Plugins must be added before the following line
 call vundle#end()            "  required
