@@ -5,7 +5,6 @@
 				"~/.tmux.conf": "tmux.conf",
 	    		"~/.vimrc": "vimrc",
 				"~/.vim": "vim",
-				"~/.emacs.d": "spacemacs",
 				"~/.zshrc": "zshrc",
 				"~/.oh-my-zsh": "oh-my-zsh",
 				"~/.gitconfig": "gitconfig"
