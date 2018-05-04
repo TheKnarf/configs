@@ -13,16 +13,19 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 "   Include plugins
-Plugin 'bling/vim-airline'   			"  Nice statusbar plugin
-Plugin 'tpope/vim-fugitive'  			"  Git wrapper
-Plugin 'Rip-Rip/clang_complete' 		"  Clang autocomplete for C and C++
-Plugin 'mattn/emmet-vim' 				"  Zen support 
-Plugin 'vim-scripts/loremipsum'  	"  Lorum ipsum plugin
-Plugin 'rust-lang/rust.vim'			"  SyntaxHighlighting for Rust
-Plugin 'elzr/vim-json'					"  JSON syntax highlighting
-Plugin 'tpope/vim-dispatch'			"  Run make or other tasks async in the background
-"Plugin 'phildawes/racer'				"  Racer - code completion for Rust
-Plugin 'reasonml-editor/vim-reason' "  ReasonML plugin 
+Plugin 'vim-airline/vim-airline'         " Airline
+Plugin 'vim-airline/vim-airline-themes'  " Themes for airline
+Plugin 'tpope/vim-fugitive'  			     "  Git wrapper
+Plugin 'Rip-Rip/clang_complete' 		     "  Clang autocomplete for C and C++
+Plugin 'mattn/emmet-vim' 				     "  Zen support 
+Plugin 'vim-scripts/loremipsum'  	     "  Lorum ipsum plugin
+Plugin 'rust-lang/rust.vim'			     "  SyntaxHighlighting for Rust
+Plugin 'elzr/vim-json'					     "  JSON syntax highlighting
+Plugin 'tpope/vim-dispatch'			     "  Run make or other tasks async in the background
+"Plugin 'phildawes/racer'				     "  Racer - code completion for Rust
+Plugin 'reasonml-editor/vim-reason'      "  ReasonML plugin 
+Plugin 'theknarf/maude.vim'              "  Maude syntax highlighting 
+
 
 "   All of your Plugins must be added before the following line
 call vundle#end()            "  required
@@ -33,11 +36,14 @@ let g:clang_library_path = "/Applications/Xcode.app/Contents/Developer/Toolchain
 
 let s:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
 if isdirectory(s:clang_library_path)
-	 let g:clang_library_path=s:clang_library_path
+ let g:clang_library_path=s:clang_library_path
 endif
 
 let g:user_emmet_mode='a'    "enable all function in all mode.
 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 
 "------------------------------------------------
 
@@ -117,13 +123,13 @@ nnoremap <leader>cN :cN<cr>
 let g:quickfix_is_open = 0
 
 function! ToggleQuickFix()
-	if g:quickfix_is_open
-		cclose
-		let g:quickfix_is_open = 0
-	else
-		copen
-		let g:quickfix_is_open = 1
-	endif
+if g:quickfix_is_open
+	cclose
+	let g:quickfix_is_open = 0
+else
+	copen
+	let g:quickfix_is_open = 1
+endif
 endfunction
 
 "- Abberations for paired symbols ( { [ " '
@@ -135,23 +141,23 @@ endfunction
 
 "- Vimscript folding
 augroup filetype_vim
-	autocmd!
-	autocmd FileType vim setlocal foldmethod=expr
-	autocmd FileType vim setlocal foldexpr=VimFold()
-	autocmd FileType vim setlocal foldtext=VimFoldText()
-	
-	function! VimFold()
- 		let thisline = getline(v:lnum)			
-		if match(thisline, '^"-') >= 0
-			return '>1'
-		else
-			return "="
-		endif
-	endfunction
+autocmd!
+autocmd FileType vim setlocal foldmethod=expr
+autocmd FileType vim setlocal foldexpr=VimFold()
+autocmd FileType vim setlocal foldtext=VimFoldText()
 
-	function! VimFoldText()
-		return getline(v:foldstart)
-	endfunction
+function! VimFold()
+	let thisline = getline(v:lnum)			
+	if match(thisline, '^"-') >= 0
+		return '>1'
+	else
+		return "="
+	endif
+endfunction
+
+function! VimFoldText()
+	return getline(v:foldstart)
+endfunction
 augroup END
 
 
@@ -189,15 +195,15 @@ let g:airline_powerline_fonts = 1
 set laststatus=2
 
 function! FileSize()
-     let bytes = getfsize(expand("%:p"))
-     if bytes <= 0
-         return "- "
-     endif
-     if bytes < 1024
-         return bytes
-     else
-         return (bytes / 1024) . "K"
-     endif
+  let bytes = getfsize(expand("%:p"))
+  if bytes <= 0
+		return "- "
+  endif
+  if bytes < 1024
+		return bytes
+  else
+		return (bytes / 1024) . "K"
+  endif
 endfunction
 
 "- With a map leader it's possible to do extra key combinations
@@ -209,7 +215,7 @@ let g:mapleader = ","
 nnoremap <leader>w :w!<cr>
 nnoremap <leader>x :x!<cr>
 nnoremap <leader>q :q<cr>
- 
+
 "- Splits
 nnoremap <leader><Down> <C-W><C-J>
 nnoremap <leader><Up> <C-w><C-K>
@@ -223,6 +229,10 @@ nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>eh :split %:p:h/../defs/%:t:r.h<cr>
 nnoremap <leader>ec :split %:p:h/../src/%:t:r.cpp<cr>
 nnoremap <leader>em :split %:p:h/Makefile<cr>
+
+"- Buffer switching
+nnoremap <leader>bn :bn<cr>
+nnoremap <leader>bd :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " Pastetoggle
 set pastetoggle=<leader>z
