@@ -17,6 +17,8 @@ export PATH=$PATH:$GOPATH/bin
 export JBOSS_HOME=/usr/local/opt/wildfly-as/libexec
 export PATH=${PATH}:${JBOSS_HOME}/bin
 
+export PATH="$HOME/Library/Haskell/bin:$PATH"
+
 #other
 echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
 
@@ -33,6 +35,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin
 export PATH=$PATH:$HOME/Dropbox/Projects/depot_tools
 export PATH=$PATH:./node_modules/.bin
+export PATH=$PATH:$HOME/bin
 
 # PHP Composer bin folder
 export PATH=$PATH:./vendor/bin
