@@ -6,3 +6,9 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 # Set Screenshot folder to ~/Downloads
 defaults write com.apple.screencapture location ~/Downloads
 killall SystemUIServer
+
+# Specify the preferences directory for iTerm2
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.iterm2_profile"
+
+# Tell iTerm2 to use the custom preferences in the directory
+defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
