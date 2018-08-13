@@ -16,6 +16,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-airline/vim-airline'         " Airline
 Plugin 'vim-airline/vim-airline-themes'  " Themes for airline
 Plugin 'tpope/vim-fugitive'  			     "  Git wrapper
+Plugin 'tpope/vim-surround'  			     "  Vim surround
 Plugin 'Rip-Rip/clang_complete' 		     "  Clang autocomplete for C and C++
 Plugin 'mattn/emmet-vim' 				     "  Zen support 
 Plugin 'vim-scripts/loremipsum'  	     "  Lorum ipsum plugin
@@ -232,6 +233,7 @@ nnoremap <leader>em :split %:p:h/Makefile<cr>
 
 "- Buffer switching
 nnoremap <leader>bn :bn<cr>
+nnoremap <leader>bp :bp<cr>
 nnoremap <leader>bd :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " Pastetoggle
