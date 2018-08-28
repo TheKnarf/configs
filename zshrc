@@ -19,6 +19,8 @@ export PATH=${PATH}:${JBOSS_HOME}/bin
 
 export PATH="$HOME/Library/Haskell/bin:$PATH"
 
+export MANPATH=":$MANPATH"
+
 #other
 echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
 
@@ -29,7 +31,7 @@ export LANG=en_US.UTF-8
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/configs/zsh_custom
 ZSH_THEME="robbyrussell"
-plugins=(git git-flow zsh-autosuggestions)
+plugins=(git git-flow zsh-autosuggestions ssh-agent)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
