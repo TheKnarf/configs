@@ -26,11 +26,18 @@ Plugin 'tpope/vim-dispatch'			     "  Run make or other tasks async in the backg
 "Plugin 'phildawes/racer'				     "  Racer - code completion for Rust
 Plugin 'reasonml-editor/vim-reason'      "  ReasonML plugin 
 Plugin 'theknarf/maude.vim'              "  Maude syntax highlighting 
-
+Plugin 'ruanyl/coverage.vim'             "  Istanbul coverage support
 
 "   All of your Plugins must be added before the following line
 call vundle#end()            "  required
 filetype plugin indent on    "  required
+
+" ruanyl/coverage.vim settings
+let g:coverage_json_report_path = 'coverage/coverage-final.json'
+let g:coverage_sign_covered = '⦿'
+let g:coverage_interval = 5000
+let g:coverage_show_uncovered = 1
+let g:coverage_show_covered = 1
 
 "   Settings for some bundles
 let g:clang_library_path = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/"
