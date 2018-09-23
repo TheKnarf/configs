@@ -17,7 +17,7 @@ Plugin 'vim-airline/vim-airline'         " Airline
 Plugin 'vim-airline/vim-airline-themes'  " Themes for airline
 Plugin 'tpope/vim-fugitive'  			     "  Git wrapper
 Plugin 'tpope/vim-surround'  			     "  Vim surround
-Plugin 'Rip-Rip/clang_complete' 		     "  Clang autocomplete for C and C++
+"Plugin 'Rip-Rip/clang_complete' 		     "  Clang autocomplete for C and C++
 Plugin 'mattn/emmet-vim' 				     "  Zen support 
 Plugin 'vim-scripts/loremipsum'  	     "  Lorum ipsum plugin
 Plugin 'rust-lang/rust.vim'			     "  SyntaxHighlighting for Rust
@@ -57,6 +57,9 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 "- Utf-8 encoding as standard
 set encoding=utf-8
+"- Colored output in builds
+let $CLICOLOR_FORCE=1
+
 "- Autowrite
 set autowrite
 "- shared clipboard
@@ -76,7 +79,6 @@ set mouse=nirc
 set showcmd
 
 "- Tab completion for vim commands
-set wildmenu
 set wildmode=list:longest,full
 
 "- Keep a longer history
@@ -91,7 +93,6 @@ set noexpandtab
 set tabstop=3
 set shiftwidth=3
 
-
 "- Set terminal title
 set title
 
@@ -101,6 +102,7 @@ set background=dark
 
 "- Highlight text which exceed 120 chars in length
 match ErrorMsg '\%>119v.\+'
+
 "- Intuitive backspacing in insert mode
 set backspace=indent,eol,start
 
@@ -139,36 +141,6 @@ else
 	let g:quickfix_is_open = 1
 endif
 endfunction
-
-"- Abberations for paired symbols ( { [ " '
-"iabbrev ( ()<left>
-"iabbrev { {}<left>
-"iabbrev [ []<left>
-"iabbrev " ""<left>
-"iabbrev ' ''<left>
-
-"- Vimscript folding
-augroup filetype_vim
-autocmd!
-autocmd FileType vim setlocal foldmethod=expr
-autocmd FileType vim setlocal foldexpr=VimFold()
-autocmd FileType vim setlocal foldtext=VimFoldText()
-
-function! VimFold()
-	let thisline = getline(v:lnum)			
-	if match(thisline, '^"-') >= 0
-		return '>1'
-	else
-		return "="
-	endif
-endfunction
-
-function! VimFoldText()
-	return getline(v:foldstart)
-endfunction
-augroup END
-
-
 
 "- Turns of that anoying bell sound
 set noerrorbells 
@@ -233,10 +205,15 @@ nnoremap <leader><Left> <C-w><C-H>
 "- Open vimrc in split mode
 nnoremap <leader>ev :split $MYVIMRC<cr>
 
-"- Open header file and source file and makefiles
-nnoremap <leader>eh :split %:p:h/../defs/%:t:r.h<cr>
-nnoremap <leader>ec :split %:p:h/../src/%:t:r.cpp<cr>
-nnoremap <leader>em :split %:p:h/Makefile<cr>
+"- Open header file and source file
+nnoremap <leader>eh :e %:p:h/%:t:r.h<cr>
+nnoremap <leader>ec :e %:p:h/%:t:r.c<cr>
+
+"- Fileview
+nnoremap <leader>v :Vex .<cr>
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_winsize = 25
 
 "- Buffer switching
 nnoremap <leader>bn :bn<cr>
