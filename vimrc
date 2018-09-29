@@ -13,40 +13,24 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 "   Include plugins
-Plugin 'vim-airline/vim-airline'         " Airline
-Plugin 'vim-airline/vim-airline-themes'  " Themes for airline
+Plugin 'vim-airline/vim-airline'         "  Airline
+Plugin 'vim-airline/vim-airline-themes'  "  Themes for airline
 Plugin 'tpope/vim-fugitive'  			     "  Git wrapper
 Plugin 'tpope/vim-surround'  			     "  Vim surround
-"Plugin 'Rip-Rip/clang_complete' 		     "  Clang autocomplete for C and C++
 Plugin 'mattn/emmet-vim' 				     "  Zen support 
-Plugin 'vim-scripts/loremipsum'  	     "  Lorum ipsum plugin
 Plugin 'rust-lang/rust.vim'			     "  SyntaxHighlighting for Rust
 Plugin 'elzr/vim-json'					     "  JSON syntax highlighting
 Plugin 'tpope/vim-dispatch'			     "  Run make or other tasks async in the background
-"Plugin 'phildawes/racer'				     "  Racer - code completion for Rust
 Plugin 'reasonml-editor/vim-reason'      "  ReasonML plugin 
 Plugin 'theknarf/maude.vim'              "  Maude syntax highlighting 
-Plugin 'ruanyl/coverage.vim'             "  Istanbul coverage support
+"Plugin 'Valloric/YouCompleteMe'          "  Completion
+Plugin 'noahfrederick/vim-skeleton'
 
 "   All of your Plugins must be added before the following line
 call vundle#end()            "  required
 filetype plugin indent on    "  required
 
-" ruanyl/coverage.vim settings
-let g:coverage_json_report_path = 'coverage/coverage-final.json'
-let g:coverage_sign_covered = '⦿'
-let g:coverage_interval = 5000
-let g:coverage_show_uncovered = 1
-let g:coverage_show_covered = 1
-
 "   Settings for some bundles
-let g:clang_library_path = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/"
-
-let s:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
-if isdirectory(s:clang_library_path)
- let g:clang_library_path=s:clang_library_path
-endif
-
 let g:user_emmet_mode='a'    "enable all function in all mode.
 
 let g:airline#extensions#tabline#enabled = 1
@@ -57,6 +41,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 "- Utf-8 encoding as standard
 set encoding=utf-8
+
 "- Colored output in builds
 let $CLICOLOR_FORCE=1
 
