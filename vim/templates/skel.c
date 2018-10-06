@@ -1,3 +1,3 @@
-#include "@BASENAME@.c"
+#include "@BASENAME@.h"
 
 @CURSOR@

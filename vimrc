@@ -42,16 +42,16 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 "- Utf-8 encoding as standard
 set encoding=utf-8
 
-"- Colored output in builds
+"- Colored output in cmake builds from vim
 let $CLICOLOR_FORCE=1
+
+"- Styling
+set fillchars+=vert:\ 
 
 "- Autowrite
 set autowrite
 "- shared clipboard
 set clipboard=unnamed
-
-"- Remap jk to <esc>
-inoremap jk <ESC>
 
 "- What this does is allow vim to manage multiple buffers effectively.
 set hidden
@@ -204,6 +204,10 @@ let g:netrw_winsize = 25
 nnoremap <leader>bn :bn<cr>
 nnoremap <leader>bp :bp<cr>
 nnoremap <leader>bd :bp<bar>sp<bar>bn<bar>bd<CR>
+
+"- Ctags
+" Jump to definition
+nnoremap <C-9> <C-]>
 
 " Pastetoggle
 set pastetoggle=<leader>z
