@@ -25,6 +25,7 @@ Plugin 'reasonml-editor/vim-reason'      "  ReasonML plugin
 Plugin 'theknarf/maude.vim'              "  Maude syntax highlighting 
 "Plugin 'Valloric/YouCompleteMe'          "  Completion
 Plugin 'noahfrederick/vim-skeleton'
+Plugin 'junegunn/fzf.vim'
 
 "   All of your Plugins must be added before the following line
 call vundle#end()            "  required
@@ -38,6 +39,9 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
 "------------------------------------------------
+
+" Setting up fzf (installed with brew install fzf)
+set rtp+=/usr/local/opt/fzf
 
 "- Utf-8 encoding as standard
 set encoding=utf-8
@@ -58,6 +62,11 @@ set hidden
 
 "- Activates the mouse
 set mouse=nirc
+if &term =~ '^screen'
+	" tmux knows the extended mouse mode
+	set ttymouse=xterm2
+endif
+
 
 "- The bottom line in your editor will show you information about the current
 "  command going on.
@@ -206,6 +215,8 @@ nnoremap <leader>bp :bp<cr>
 nnoremap <leader>bd :bp<bar>sp<bar>bn<bar>bd<CR>
 
 "- Ctags
+set tags=./tags;
+
 " Jump to definition
 nnoremap <C-9> <C-]>
 
