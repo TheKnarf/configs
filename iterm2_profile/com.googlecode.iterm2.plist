@@ -492,19 +492,19 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>282 565 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
-	<string>92 648 616 174 0 0 1680 1027 </string>
+	<string>92 632 616 174 0 0 1680 1027 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 126 606 469 0 0 1680 1050 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>579 543 928 394 0 0 1680 1050 </string>
+	<string>579 503 918 452 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>463 350 570 427 0 0 1680 1027 </string>
+	<string>85 255 786 578 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>740 424 570 427 0 0 1680 1027 </string>
+	<string>285 216 920 763 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>1066 549 570 427 0 0 1680 1027 </string>
+	<string>723 549 570 427 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>254 594 570 427 0 0 1680 1027 </string>
+	<string>499 445 570 427 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_7721938D-43F6-4255-8D4F-C067BF46FD2A</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -786,7 +786,7 @@
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>80</integer>
+			<integer>90</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Color</key>
@@ -1191,7 +1191,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>25</integer>
+			<integer>24</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -1473,7 +1473,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-09-26T00:08:49Z</date>
+	<date>2018-10-06T11:24:19Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
@@ -1521,7 +1521,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.2.0</string>
+	<string>3.2.1</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
