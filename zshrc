@@ -36,7 +36,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # Opam
-eval `opam config env`
+eval `opam env --readonly`
 
 # Oh my zsh
 ZSH=$HOME/.oh-my-zsh
@@ -44,18 +44,3 @@ ZSH_CUSTOM=$HOME/configs/zsh_custom
 ZSH_THEME="robbyrussell"
 plugins=(git git-flow zsh-autosuggestions ssh-agent man-color bindkey-vim)
 source $ZSH/oh-my-zsh.sh
-
-# Google cloud sdk
-source "$HOME/google-cloud-sdk/path.zsh.inc"
-source "$HOME/google-cloud-sdk/completion.zsh.inc"
-
-# Google gyp stuff
-export CXX=`which clang++`
-export CC=`which clang`
-export CPP="`which clang` -E -std=c++11 -stdlib=libc++"
-export LINK="`which clang++` -std=c++11 -stdlib=libc++"
-export CXX_host=`which clang++`
-export CC_host=`which clang`
-export CPP_host="`which clang` -E"
-export LINK_host=`which clang++`
-export GYP_DEFINES="clang=1 mac_deployment_target=10.9"
