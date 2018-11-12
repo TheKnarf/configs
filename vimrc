@@ -49,6 +49,10 @@ set encoding=utf-8
 "- Colored output in cmake builds from vim
 let $CLICOLOR_FORCE=1
 
+"- Special characters
+set list
+set listchars=nbsp:¬,tab:>-,extends:»,precedes:«,trail:•
+
 "- Styling
 set fillchars+=vert:\ 
 
