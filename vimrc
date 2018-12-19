@@ -17,15 +17,16 @@ Plugin 'vim-airline/vim-airline'         "  Airline
 Plugin 'vim-airline/vim-airline-themes'  "  Themes for airline
 Plugin 'tpope/vim-fugitive'  			     "  Git wrapper
 Plugin 'tpope/vim-surround'  			     "  Vim surround
-Plugin 'mattn/emmet-vim' 				     "  Zen support 
+Plugin 'mattn/emmet-vim' 				     "  Zen support
 Plugin 'rust-lang/rust.vim'			     "  SyntaxHighlighting for Rust
 Plugin 'elzr/vim-json'					     "  JSON syntax highlighting
 Plugin 'tpope/vim-dispatch'			     "  Run make or other tasks async in the background
-Plugin 'reasonml-editor/vim-reason'      "  ReasonML plugin 
-Plugin 'theknarf/maude.vim'              "  Maude syntax highlighting 
+Plugin 'reasonml-editor/vim-reason'      "  ReasonML plugin
+Plugin 'theknarf/maude.vim'              "  Maude syntax highlighting
 "Plugin 'Valloric/YouCompleteMe'          "  Completion
 Plugin 'noahfrederick/vim-skeleton'
 Plugin 'junegunn/fzf.vim'
+Plugin 'leafgarland/typescript-vim'
 
 "   All of your Plugins must be added before the following line
 call vundle#end()            "  required
@@ -33,6 +34,8 @@ filetype plugin indent on    "  required
 
 "   Settings for some bundles
 let g:user_emmet_mode='a'    "enable all function in all mode.
+
+let g:typescript_indent_disable = 1
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
@@ -51,7 +54,7 @@ let $CLICOLOR_FORCE=1
 
 "- Special characters
 set list
-set listchars=nbsp:¬,tab:>-,extends:»,precedes:«,trail:•
+set listchars=nbsp:¬,tab:  ,trail:•
 
 "- Styling
 set fillchars+=vert:\ 
@@ -226,6 +229,14 @@ nnoremap <C-9> <C-]>
 
 " Pastetoggle
 set pastetoggle=<leader>z
+
+" Copy to clipboard on MacOS in visual mode
+vmap <C-c> :w !pbcopy<CR><CR>
+
+" fzf Commands
+nnoremap <C-c>: :Command<CR>
+nnoremap <C-g> :Rg<Cr>
+nnoremap <C-f> :Files<Cr>
 
 " Sudo write by w!!
 cmap w!! w !sudo tee % >/dev/null
