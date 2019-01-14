@@ -492,15 +492,15 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>282 565 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
-	<string>92 632 616 174 0 0 1680 1027 </string>
+	<string>532 656 616 174 0 0 1680 1027 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 126 606 469 0 0 1680 1050 </string>
+	<string>2009 103 606 469 1680 -30 1920 1080 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>579 503 918 452 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>85 255 786 578 0 0 1680 1027 </string>
+	<string>0 616 640 411 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>285 216 920 763 0 0 1680 1027 </string>
+	<string>442 322 640 411 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>723 549 570 427 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -1385,6 +1385,8 @@
 	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
 	<integer>0</integer>
+	<key>NoSyncHaveRequestedFullDiskAccess</key>
+	<true/>
 	<key>NoSyncHaveShownPromoWithId_4</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
@@ -1473,7 +1475,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-10-06T11:24:19Z</date>
+	<date>2018-12-27T10:47:49Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
@@ -1518,10 +1520,12 @@
 	<string>/-+\~_.</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.2.1</string>
+	<string>3.2.5</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
