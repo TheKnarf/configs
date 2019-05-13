@@ -10,11 +10,10 @@ export PS1
 
 . `brew --prefix`/etc/profile.d/z.sh
 
-export JBOSS_HOME=/usr/local/opt/wildfly-as/libexec
+export GOPATH=$HOME/Dropbox/golang
 
 # Setup path
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin
-export PATH=$PATH:${JBOSS_HOME}/bin
 export PATH=$PATH:$HOME/Dropbox/Projects/depot_tools
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/Library/Haskell/bin
@@ -23,14 +22,11 @@ export PATH=$PATH:./vendor/bin  # PHP Composer bin folder
 export PATH=$PATH:~/.cargo/bin  # Rust bin path
 export PATH=$PATH:/usr/local/heroku/bin # Added by the Heroku Toolbelt
 export PATH=$PATH:$GOPATH/bin
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-
-export GOPATH=$HOME/Dropbox/golang
 
 # Ensure that MANPATH have a : in the beginning
 export MANPATH=":$MANPATH"
-
-echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -45,11 +41,9 @@ ZSH_THEME="robbyrussell"
 plugins=(git git-flow zsh-autosuggestions ssh-agent man-color bindkey-vim)
 source $ZSH/oh-my-zsh.sh
 
-export NVM_DIR=~/.nvm
-source ~/.nvm/nvm.sh
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPS="--extended"
 export FZF_DEFAULT_COMMAND="fd --type f"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fzfgrep(){ grep --line-buffered --color=never -r "" * | fzf }
+
