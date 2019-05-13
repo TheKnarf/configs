@@ -27,12 +27,21 @@ Plugin 'theknarf/maude.vim'              "  Maude syntax highlighting
 Plugin 'noahfrederick/vim-skeleton'
 Plugin 'junegunn/fzf.vim'
 Plugin 'leafgarland/typescript-vim'
+if has('nvim')
+  Plugin 'shougo/deoplete.nvim'
+else
+  Plugin 'shougo/deoplete.nvim'
+  Plugin 'roxma/nvim-yarp'
+  Plugin 'roxma/vim-hug-neovim-rpc'
+endif
 
 "   All of your Plugins must be added before the following line
 call vundle#end()            "  required
 filetype plugin indent on    "  required
 
 "   Settings for some bundles
+let g:deoplete#enable_at_startup = 1
+
 let g:user_emmet_mode='a'    "enable all function in all mode.
 
 let g:typescript_indent_disable = 1
