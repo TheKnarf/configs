@@ -4,7 +4,7 @@
 			"~/.screenrc": "screenrc",
 			"~/.tmux.conf": "tmux.conf",
 			"~/.vimrc": "vimrc",
-			"~/.vim": "vim",
+			"~/.vim": "vim/",
 			"~/.config/nvim": "nvim",
 			"~/.zshrc": "zshrc",
 			"~/.ctags": "ctags",
