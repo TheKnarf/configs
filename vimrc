@@ -27,6 +27,7 @@ Plugin 'theknarf/maude.vim'              "  Maude syntax highlighting
 Plugin 'noahfrederick/vim-skeleton'
 Plugin 'junegunn/fzf.vim'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'editorconfig/editorconfig-vim'
 if has('nvim')
   Plugin 'shougo/deoplete.nvim'
 else
