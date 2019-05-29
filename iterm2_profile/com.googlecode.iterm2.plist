@@ -492,17 +492,17 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>282 565 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
-	<string>532 656 616 174 0 0 1680 1027 </string>
+	<string>92 632 616 174 0 0 1680 1027 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>2009 103 606 469 1680 -30 1920 1080 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>579 503 918 452 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 616 640 411 0 0 1680 1027 </string>
+	<string>0 65 1680 962 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>442 322 640 411 0 0 1680 1027 </string>
+	<string>233 584 640 411 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>723 549 570 427 0 0 1680 1027 </string>
+	<string>-1030 563 640 411 -1920 -30 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
 	<string>499 445 570 427 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_7721938D-43F6-4255-8D4F-C067BF46FD2A</key>
@@ -1475,13 +1475,15 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-12-27T10:47:49Z</date>
+	<date>2019-02-24T14:29:50Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
 	<true/>
 	<key>ShowBookmarkName</key>
 	<false/>
+	<key>ShowFullScreenTabBar</key>
+	<true/>
 	<key>ShowPaneTitles</key>
 	<true/>
 	<key>SmartPlacement</key>
@@ -1525,7 +1527,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.2.5</string>
+	<string>3.2.7</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
