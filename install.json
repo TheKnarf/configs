@@ -5,7 +5,6 @@
 			"~/.tmux.conf": "tmux.conf",
 			"~/.vimrc": "vimrc",
 			"~/.vim": "vim/",
-			"~/.config/nvim": "nvim",
 			"~/.zshrc": "zshrc",
 			"~/.ctags": "ctags",
 			"~/.oh-my-zsh": "oh-my-zsh",

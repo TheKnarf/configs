@@ -7,3 +7,12 @@ Dot files, setup using dotbot.
 ```
 ./setup
 ```
+
+## Testing
+
+You can test out the setup using Docker.
+
+```
+docker build -t dotfiles .
+docker run -it dotfiles
+```
