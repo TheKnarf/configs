@@ -1,0 +1,8 @@
+services:
+   - docker
+
+git:
+   submodules: false
+
+script:
+   - docker build -t dotfiles .
