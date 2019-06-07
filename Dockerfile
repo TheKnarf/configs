@@ -6,7 +6,7 @@ RUN useradd -m -s /bin/zsh tester &&\
 	 chown -R tester:tester /home/tester
 
 # Operating system updates and install
-RUN install_packages python git vim zsh
+RUN install_packages python git vim zsh ca-certificates
 
 # Add dotfiles and chown
 ADD --chown=tester:tester . /home/tester/configs
