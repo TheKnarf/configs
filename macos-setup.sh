@@ -1,11 +1,49 @@
 #!/usr/bin/env bash
 
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
+
+echo "Update setting: expand save panel by default"
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+echo "Update setting: Expand print panel by default"
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+echo "Update setting: Save to disk (not to iCloud) by default"
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
 echo 'Disable the "Are you sure you want to open this application?" dialog'
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 echo 'Set Screenshot folder to ~/Downloads'
 defaults write com.apple.screencapture location ~/Downloads
 killall SystemUIServer
+
+echo "Don't show thumbnail on screenshot"
+defaults write com.apple.screencapture show-tumbnail -bool false
+
+echo "Require password immediately after sleep or screen saver begins"
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+echo "Finder: show all filename extensions"
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+echo "Finder: When performing a search, search the current folder by default"
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+echo "Finder: Avoid creating .DS_Store files on network or USB volumes"
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+echo 'Hot corners'
+# defaults read com.apple.dock | grep wvous # check hot corners
+# ref https://blog.jiayu.co/2018/12/quickly-configuring-hot-corners-on-macos/
+defaults write com.apple.dock wvous-bl-corner -int 10
+defaults write com.apple.dock wvous-bl-modifier -int 0
 
 # Check if Homebrew is installed
 command -v brew >/dev/null 2>&1 || { \
