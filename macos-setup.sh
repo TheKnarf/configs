@@ -23,7 +23,7 @@ defaults write com.apple.screencapture location ~/Downloads
 killall SystemUIServer
 
 echo "Don't show thumbnail on screenshot"
-defaults write com.apple.screencapture show-tumbnail -bool false
+defaults write com.apple.screencapture show-thumbnail -bool false
 
 echo "Require password immediately after sleep or screen saver begins"
 defaults write com.apple.screensaver askForPassword -int 1
