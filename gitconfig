@@ -12,5 +12,6 @@
 	up = pull --rebase
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	log = ! git log --oneline --color | emojify | less
+	cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
 [core]
 	editor = /usr/bin/vim
