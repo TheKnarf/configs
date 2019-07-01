@@ -66,17 +66,17 @@ brew_check_if_installed pandoc
 brew_check_if_installed pandoc-citeproc
 brew_check_if_installed pandoc-crossref
 
-# Node
+# Programming
 brew_check_if_installed node
-
-# C / C++
 brew_check_if_installed cmake
+brew_check_if_installed rustup-init
 
 # Other
 brew_check_if_installed ansible
 
 # Casks
 brew_cask_check_if_installed google-chrome
+brew_cask_check_if_installed dropbox
 brew_cask_check_if_installed alfred
 brew_cask_check_if_installed spotify
 brew_cask_check_if_installed slack
