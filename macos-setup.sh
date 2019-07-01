@@ -52,7 +52,6 @@ defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.iterm2_
 echo 'Tell iTerm2 to use the custom preferences in the directory'
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
-brew_cask_check_if_installed google-chrome
 
 # Enviromet
 brew_check_if_installed z
@@ -75,3 +74,13 @@ brew_check_if_installed cmake
 
 # Other
 brew_check_if_installed ansible
+
+# Casks
+brew_cask_check_if_installed google-chrome
+brew_cask_check_if_installed alfred2
+brew_cask_check_if_installed spotify
+brew_cask_check_if_installed slack
+brew_cask_check_if_installed virtualbox
+brew_cask_check_if_installed vlc
+brew_cask_check_if_installed sublime-text
+brew_cask_check_if_installed disk-inventory-x
