@@ -1,5 +1,7 @@
-if [ -n "$SSH-CLIENT" ] || [ -n "$SSH_TTY" ]; then
+if [ -n "$SSH_TTY" ]; then
 	SHOWHOSTNAME="$(hostname) "
+else
+	SHOWHOSTNAME=""
 fi
 
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
