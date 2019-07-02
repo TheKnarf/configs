@@ -98,6 +98,7 @@ brew_check_if_installed fzf
 brew_check_if_installed wget
 brew_check_if_installed tree
 brew_check_if_installed watch
+brew_check_if_installed reattach-to-user-namespace
 
 # Pandoc
 brew_check_if_installed pandoc
