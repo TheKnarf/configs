@@ -1,13 +1,3 @@
-if [[ ${TERM} == "screen-bce" || ${TERM} == "screen" ]]; then
-	precmd () { print -Pn "\033k\033\134\033k%m[%1d]\033\134" }
-	eexec () { print -Pn "\033k\033\134\033k%m[$1]\033\134" }
-else
-	precmd () { print -Pn "\e]0;%n@%m: %~\a" }
-	eexec () { print -Pn "\e]0;%n@%m: $1\a" }
-fi
-S1=$'%{\e[0;32m%}%m%{\e[0m%}:%~> '
-export PS1
-
 . `brew --prefix`/etc/profile.d/z.sh
 
 export GOPATH=$HOME/Dropbox/golang
@@ -32,7 +22,10 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # Opam
-eval `opam env --readonly`
+if [[ $(command -v opam) == "" ]]; then
+else
+	eval `opam env --readonly`
+fi
 
 # Oh my zsh
 ZSH=$HOME/.oh-my-zsh
@@ -46,4 +39,3 @@ export FZF_DEFAULT_OPS="--extended"
 export FZF_DEFAULT_COMMAND="fd --type f"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fzfgrep(){ grep --line-buffered --color=never -r "" * | fzf }
-
