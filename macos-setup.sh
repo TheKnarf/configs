@@ -134,3 +134,10 @@ brew_cask_check_if_installed vagrant
 # Games
 brew_cask_check_if_installed minecraft
 brew_cask_check_if_installed steam
+
+# Font
+brew tap homebrew/cask-fonts
+brew_cask_check_if_installed font-source-code-pro-for-powerline
+brew_cask_check_if_installed font-consolas-for-powerline
+brew_cask_check_if_installed font-fira-mono-for-powerline
+brew_cask_check_if_installed font-roboto-mono-for-powerline
