@@ -131,6 +131,7 @@ brew_cask_check_if_installed postman
 brew_cask_check_if_installed webtorrent
 brew_cask_check_if_installed the-unarchiver
 brew_cask_check_if_installed vagrant
+brew_cask_check_if_installed blender
 
 # Games
 brew_cask_check_if_installed minecraft
