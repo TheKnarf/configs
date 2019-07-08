@@ -110,6 +110,7 @@ brew_check_if_installed pandoc-crossref
 brew_check_if_installed node
 brew_check_if_installed cmake
 brew_check_if_installed rustup-init
+brew_check_if_installed yarn
 
 # Other
 brew_check_if_installed ansible
