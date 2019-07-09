@@ -121,6 +121,7 @@ brew_cask_check_if_installed dropbox
 brew_cask_check_if_installed alfred
 brew_cask_check_if_installed spotify
 brew_cask_check_if_installed slack
+brew_cask_check_if_installed discord
 brew_cask_check_if_installed virtualbox
 brew_cask_check_if_installed vlc
 brew_cask_check_if_installed sublime-text
