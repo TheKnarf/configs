@@ -100,6 +100,7 @@ brew_check_if_installed tree
 brew_check_if_installed watch
 brew_check_if_installed reattach-to-user-namespace
 brew_check_if_installed htop
+brew_check_if_installed neovim
 
 # Pandoc
 brew_check_if_installed pandoc
@@ -111,6 +112,11 @@ brew_check_if_installed node
 brew_check_if_installed cmake
 brew_check_if_installed rustup-init
 brew_check_if_installed yarn
+brew_check_if_installed go
+
+# Chat
+brew_check_if_installed irssi
+brew_check_if_installed weechat
 
 # Other
 brew_check_if_installed ansible
