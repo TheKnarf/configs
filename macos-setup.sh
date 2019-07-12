@@ -95,6 +95,7 @@ defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 brew_check_if_installed z
 brew_check_if_installed tmux
 brew_check_if_installed fzf
+brew_check_if_installed fd
 brew_check_if_installed wget
 brew_check_if_installed tree
 brew_check_if_installed watch
