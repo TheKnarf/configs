@@ -1,0 +1,15 @@
+#!/usr/bin/osascript
+#
+# Full explanation here: http://www.nikhilgopal.com/2011/08/show-and-tell-applescript-spotify-alarm.html
+# If you would like to specify a playlist, please refer to this gist: https://gist.github.com/3344118
+#
+# Run crontab -e to add the script to cron as following:
+#    0 6 * * 1-5 /Users/fl-macbook-retina/bin/alarm_spotify
+
+open location "spotify:user:spotify:playlist:37i9dQZF1DX8f5qTGj8FYl"
+set Volume 5
+tell application "Spotify"
+	play track "spotify:user:spotify:playlist:37i9dQZF1DX8f5qTGj8FYl"
+	set the sound volume to 100
+	play
+end tell
