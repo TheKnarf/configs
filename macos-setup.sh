@@ -100,9 +100,13 @@ brew_check_if_installed rg
 brew_check_if_installed wget
 brew_check_if_installed tree
 brew_check_if_installed watch
+brew_check_if_installed fswatch
 brew_check_if_installed reattach-to-user-namespace
 brew_check_if_installed htop
 brew_check_if_installed neovim
+brew_check_if_installed jq
+brew_check_if_installed cloc
+brew_check_if_installed coreutils
 
 # Pandoc
 brew_check_if_installed pandoc
