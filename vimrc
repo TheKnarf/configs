@@ -42,6 +42,9 @@ set encoding=utf-8
 "- Colored output in cmake builds from vim
 let $CLICOLOR_FORCE=1
 
+"- Autoreload file that has changed
+set autoread
+
 "- Special characters
 set list
 set listchars=nbsp:¬,tab:  ,trail:•
@@ -79,10 +82,10 @@ set history=7000
 set autoread
 
 "- indent
-set autoindent 
+set autoindent
 set noexpandtab
-set tabstop=3
-set shiftwidth=3
+set tabstop=2
+set shiftwidth=2
 
 "- Set terminal title
 set title
