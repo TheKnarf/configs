@@ -112,6 +112,7 @@ brew_check_if_installed coreutils
 brew_check_if_installed pandoc
 brew_check_if_installed pandoc-citeproc
 brew_check_if_installed pandoc-crossref
+brew_cask_check_if_installed mactex
 
 # Programming
 brew_check_if_installed node
