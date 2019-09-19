@@ -107,6 +107,7 @@ brew_check_if_installed neovim
 brew_check_if_installed jq
 brew_check_if_installed cloc
 brew_check_if_installed coreutils
+brew_check_if_installed bat
 
 # Pandoc
 brew_check_if_installed pandoc
