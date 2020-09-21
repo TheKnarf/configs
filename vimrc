@@ -190,12 +190,6 @@ nnoremap <leader>w :w!<cr>
 nnoremap <leader>x :x!<cr>
 nnoremap <leader>q :q<cr>
 
-"- Splits
-nnoremap <leader><Down> <C-W><C-J>
-nnoremap <leader><Up> <C-w><C-K>
-nnoremap <leader><Right> <C-w><C-L>
-nnoremap <leader><Left> <C-w><C-H>
-
 "- Open vimrc in split mode
 nnoremap <leader>ev :split $MYVIMRC<cr>
 
