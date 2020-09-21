@@ -147,6 +147,8 @@ brew_cask_check_if_installed webtorrent
 brew_cask_check_if_installed the-unarchiver
 brew_cask_check_if_installed vagrant
 brew_cask_check_if_installed blender
+brew_cask_check_if_installed flux
+brew_cask_check_if_installed talon
 
 # Games
 brew_cask_check_if_installed minecraft
