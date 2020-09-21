@@ -67,6 +67,9 @@ if &term =~ '^screen'
 	set ttymouse=xterm2
 endif
 
+"- Netrw auto clos
+" Taken from: https://vi.stackexchange.com/questions/14622/how-can-i-close-the-netrw-buffer
+autocmd FileType netrw setl bufhidden=wipe
 
 "- The bottom line in your editor will show you information about the current
 "  command going on.
@@ -96,6 +99,12 @@ set background=dark
 
 "- Highlight text which exceed 120 chars in length
 match ErrorMsg '\%>119v.\+'
+
+"- Markdown
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd FileType markdown match ErrorMsg '\%>1000v.\+'
+autocmd FileType markdown setlocal spell spelllang=en_us
+
 
 "- Intuitive backspacing in insert mode
 set backspace=indent,eol,start
@@ -149,13 +158,14 @@ set scrolloff=4
 
 "- set backup and tmp dir
 set backup
+set backupcopy=yes
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
 
 "- or rather turn backup/swap off..
-set nobackup
-set nowb
-set noswapfile
+"set nobackup
+"set nowb
+"set noswapfile
 
 "- Linenumber
 set number
