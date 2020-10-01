@@ -70,7 +70,7 @@ brew_check_if_installed () {
 }
 
 brew_cask_check_if_installed () {
-	if brew cask ls --versions $1 > /dev/null; then
+	if brew ls --cask --versions $1 > /dev/null; then
 		echo "$1 allready installed"
 	else
 		echo "$1 is not installed with brew cask"
