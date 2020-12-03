@@ -12,11 +12,3 @@ Plugin 'noahfrederick/vim-skeleton'
 Plugin 'junegunn/fzf.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'editorconfig/editorconfig-vim'
-
-if has('nvim')
-  Plugin 'shougo/deoplete.nvim'
-else
-  Plugin 'shougo/deoplete.nvim'
-  Plugin 'roxma/nvim-yarp'
-  Plugin 'roxma/vim-hug-neovim-rpc'
-endif

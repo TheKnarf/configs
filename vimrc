@@ -21,8 +21,6 @@ call vundle#end()            "  required
 filetype plugin indent on    "  required
 
 "   Settings for some bundles
-let g:deoplete#enable_at_startup = 1
-
 let g:user_emmet_mode='a'    "enable all function in all mode.
 
 let g:typescript_indent_disable = 1
@@ -104,7 +102,6 @@ match ErrorMsg '\%>119v.\+'
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd FileType markdown match ErrorMsg '\%>1000v.\+'
 autocmd FileType markdown setlocal spell spelllang=en_us
-
 
 "- Intuitive backspacing in insert mode
 set backspace=indent,eol,start
