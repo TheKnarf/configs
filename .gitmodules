@@ -10,3 +10,6 @@
 [submodule "zsh_custom/plugins/zsh-autosuggestions"]
 	path = zsh_custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "zsh_custom/plugins/zsh-yarn-completions"]
+	path = zsh_custom/plugins/zsh-yarn-completions
+	url = https://github.com/chrisands/zsh-yarn-completions
