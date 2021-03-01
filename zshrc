@@ -1,3 +1,4 @@
+export PATH=$PATH:/opt/homebrew/bin/
 . `brew --prefix`/etc/profile.d/z.sh
 
 export GOPATH=$HOME/Dropbox/golang
