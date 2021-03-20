@@ -18,3 +18,5 @@
 	editor = /usr/bin/vim
 [pull]
 	ff = only
+[init]
+	defaultBranch = main
