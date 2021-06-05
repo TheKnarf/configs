@@ -75,7 +75,7 @@ brew_cask_check_if_installed () {
 
 
 brew install git
-brew install --caske iTerm2
+brew install --cask iTerm2
 
 echo 'Specify the preferences directory for iTerm2'
 defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.iterm2_profile"
