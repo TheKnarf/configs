@@ -110,11 +110,14 @@ brew install \
 
 # Programming
 brew install \
-	node \
+	node@16 \
 	cmake \
 	rustup-init \
 	yarn \
 	go
+
+# Ensure that we have versionj 16 of node
+brew link --overwrite node@16
 
 # Casks
 brew_cask_check_if_installed google-chrome
