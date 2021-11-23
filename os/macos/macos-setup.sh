@@ -54,10 +54,6 @@ echo 'Hot corners'
 defaults write com.apple.dock wvous-bl-corner -int 10
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
-echo "cmd+shift+left and cmd+shift+right to move apps to left and right of the screen"
-defaults write -globalDomain NSUserKeyEquivalents -dict-add "Move Window to Left Side of Screen" "@$\\U2190"
-defaults write -globalDomain NSUserKeyEquivalents -dict-add "Move Window to Right Side of Screen" "@$\\U2192"
-
 echo "Remove default pinned apps from Dock"
 # https://stackoverflow.com/questions/56121092/applescript-to-remove-items-from-dock
 defaults delete com.apple.dock persistent-apps; killall Dock
