@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+# If running MacOS under arm64 (aka M1)
+if [[ `arch` == 'arm64' ]]; then
+	if [[ "`pkgutil --files com.apple.pkg.RosettaUpdateAuto`" == "" ]]; then
+		sudo softwareupdate --install-rosetta
+	else
+		echo "Rosetta is allready installed"
+	fi
+fi
+
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
