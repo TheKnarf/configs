@@ -88,6 +88,9 @@ set noexpandtab
 set tabstop=2
 set shiftwidth=2
 
+"- Makefile use tab
+autocmd FileType make setlocal noexpandtab
+
 "- Set terminal title
 set title
 
@@ -237,3 +240,4 @@ cmap w!! w !sudo tee % >/dev/null
 
 "- When vimrc is edited, reload it
 autocmd! bufwritepost .vimrc source %
+
