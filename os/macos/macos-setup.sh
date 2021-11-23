@@ -106,6 +106,7 @@ brew install \
 	jq \
 	cloc \
 	coreutils \
+	direnv \
 	bat
 
 # Programming

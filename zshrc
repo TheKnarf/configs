@@ -55,3 +55,6 @@ export WASMER_DIR="~/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Eval direnv to dynamically load and unload enviroment variables based on different projects
+eval "$(direnv hook zsh)"
