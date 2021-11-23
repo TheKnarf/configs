@@ -1,4 +1,4 @@
-export PATH=$PATH:/opt/homebrew/bin/
+export PATH=/opt/homebrew/bin/:/opt/homebrew/sbin/:$PATH
 if command -v brew &> /dev/null
 then
 . `brew --prefix`/etc/profile.d/z.sh
@@ -55,4 +55,3 @@ export WASMER_DIR="~/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
