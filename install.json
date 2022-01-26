@@ -9,7 +9,8 @@
 			"~/.ctags": "ctags",
 			"~/.oh-my-zsh": "oh-my-zsh",
 			"~/.gitconfig": "gitconfig",
-			"~/.iterm2_profile": "iterm2_profile"
+			"~/.iterm2_profile": "iterm2_profile",
+			"~/.witchcraft-scripts": "witchcraft-scripts"
 		}
 	},
 	{
