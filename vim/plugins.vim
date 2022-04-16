@@ -1,6 +1,5 @@
 Plugin 'vim-airline/vim-airline'         "  Airline
 Plugin 'vim-airline/vim-airline-themes'  "  Themes for airline
-Plugin 'tpope/vim-fugitive'  			     "  Git wrapper
 Plugin 'tpope/vim-surround'  			     "  Vim surround
 Plugin 'mattn/emmet-vim' 				     "  Zen support
 Plugin 'rust-lang/rust.vim'			     "  SyntaxHighlighting for Rust
