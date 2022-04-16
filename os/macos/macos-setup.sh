@@ -109,6 +109,7 @@ brew install \
 	coreutils \
 	direnv \
 	git-annex \
+	stow \
 	bat
 
 # Programming
