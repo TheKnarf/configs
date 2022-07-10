@@ -43,8 +43,9 @@ function setup_link () {
 	elif [ -e ${DEST_FILE} ] ; then
 		printf "  ${ITALICRED}✗ Not a link (${DEST_FILE})${ENDCOLOR}\n"
 	else
+		mkdir -p "$(dirname "$DEST_FILE")"
 		ln -s $SOURCE_FILE $DEST_FILE
-		printf "  ${BOLDBLUE}✓ Linked (${DEST_FILE})$ENDCOLOR}\n"
+		printf "  ${BOLDBLUE}✓ Linked (${DEST_FILE})${ENDCOLOR}\n"
 	fi
 
 }
@@ -54,6 +55,7 @@ setup_link "$HOME/.screenrc" "screenrc"
 setup_link "$HOME/.tmux.conf" "tmux.conf"
 setup_link "$HOME/.vimrc" "vimrc"
 setup_link "$HOME/.vim" "vim/"
+setup_link "$HOME/.vim/autoload/plug.vim" "vim-plug/plug.vim"
 setup_link "$HOME/.zshrc" "zshrc"
 setup_link "$HOME/.ctags" "ctags"
 setup_link "$HOME/.oh-my-zsh" "oh-my-zsh"
@@ -67,7 +69,7 @@ setup_link "$HOME/.witchcraft-scripts" "witchcraft-scripts"
 
 # Installing vim plugins
 echo "- Installing vim plugins"
-vim +PluginInstall +qall
+vim +PlugInstall! +qall
 
 # Create backup and tmp folder for vim
 mkdir -p ~/.vim/backup

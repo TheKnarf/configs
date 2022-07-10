@@ -1,23 +1,18 @@
 "   ---------------------------------------------
-"-               Setting up Vundle
+"-               Setting up vim-plug
 "              - Vim plugin manager -
 "   ---------------------------------------------
 set nocompatible              "  be iMproved, required
 filetype off                  "  required
 
-"   set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-"   let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin()
 
 if filereadable(expand("~/.vim/plugins.vim"))
 	source ~/.vim/plugins.vim
 endif
 
-"   All of your Plugins must be added before the following line
-call vundle#end()            "  required
+call plug#end()
+
 filetype plugin indent on    "  required
 
 "   Settings for some bundles

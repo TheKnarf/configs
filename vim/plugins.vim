@@ -1,14 +1,14 @@
-Plugin 'vim-airline/vim-airline'         "  Airline
-Plugin 'vim-airline/vim-airline-themes'  "  Themes for airline
-Plugin 'tpope/vim-surround'  			     "  Vim surround
-Plugin 'mattn/emmet-vim' 				     "  Zen support
-Plugin 'rust-lang/rust.vim'			     "  SyntaxHighlighting for Rust
-Plugin 'elzr/vim-json'					     "  JSON syntax highlighting
-Plugin 'tpope/vim-dispatch'			     "  Run make or other tasks async in the background
-Plugin 'reasonml-editor/vim-reason'      "  ReasonML plugin
-Plugin 'theknarf/maude.vim'              "  Maude syntax highlighting
-Plugin 'noahfrederick/vim-skeleton'
-Plugin 'junegunn/fzf.vim'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'ziglang/zig.vim'
+Plug 'vim-airline/vim-airline'         "  Airline
+Plug 'vim-airline/vim-airline-themes'  "  Themes for airline
+Plug 'tpope/vim-surround'              "  Vim surround
+Plug 'mattn/emmet-vim'                 "  Zen support
+Plug 'rust-lang/rust.vim'              "  SyntaxHighlighting for Rust
+Plug 'elzr/vim-json'                   "  JSON syntax highlighting
+Plug 'tpope/vim-dispatch'              "  Run make or other tasks async in the background
+Plug 'reasonml-editor/vim-reason'      "  ReasonML plugin
+Plug 'theknarf/maude.vim'              "  Maude syntax highlighting
+Plug 'noahfrederick/vim-skeleton'
+Plug 'junegunn/fzf.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'ziglang/zig.vim'

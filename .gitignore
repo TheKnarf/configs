@@ -1,5 +1,8 @@
 vim/bundle
 vim/tmp
+vim/autoload
+!vim/autoload/.gitkeep
+vim/plugged
 *.swp
 
 # Created by http://www.gitignore.io

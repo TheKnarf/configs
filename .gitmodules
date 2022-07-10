@@ -10,3 +10,6 @@
 [submodule "zsh_custom/plugins/zsh-yarn-completions"]
 	path = zsh_custom/plugins/zsh-yarn-completions
 	url = https://github.com/chrisands/zsh-yarn-completions
+[submodule "vim-plug"]
+	path = vim-plug
+	url = git@github.com:junegunn/vim-plug.git
