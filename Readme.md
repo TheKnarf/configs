@@ -1,6 +1,7 @@
 # Configs
 
-Dot files, setup using dotbot.
+Dot files and other config files.
+First time setup scritps under `os/`.
 
 ## Installation
 
