@@ -1,4 +1,4 @@
-FROM bitnami/minideb:jessie
+FROM bitnami/minideb:latest
 
 # Create test user, home directory and set permissions
 RUN useradd -m -s /bin/zsh tester &&\
@@ -6,7 +6,7 @@ RUN useradd -m -s /bin/zsh tester &&\
 	 chown -R tester:tester /home/tester
 
 # Operating system updates and install
-RUN install_packages python git vim zsh ca-certificates
+RUN install_packages git vim zsh ca-certificates
 
 # Add dotfiles and chown
 ADD --chown=tester:tester . /home/tester/configs
