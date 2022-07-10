@@ -1,5 +1,10 @@
 #!/bin/bash -e
 
+if command -v neofetch &> /dev/null
+then
+	neofetch
+fi
+
 # Colors
 BOLDGREEN="\e[1;32m"
 BOLDBLUE="\e[1;34m"
