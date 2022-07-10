@@ -29,12 +29,6 @@ export MANPATH=":$MANPATH"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# Opam
-if [[ $(command -v opam) == "" ]]; then
-else
-	eval `opam env --readonly`
-fi
-
 # Oh my zsh
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/configs/zsh_custom
@@ -47,30 +41,11 @@ plugins=(
 	bindkey-vim
 	zsh-yarn-completions
 	kubectl
+	wasmer
+	bun
+	direnv
+	fzf
 )
 source $ZSH/oh-my-zsh.sh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPS="--extended"
-export FZF_DEFAULT_COMMAND="fd --type f"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-fzfgrep(){ grep --line-buffered --color=never -r "" * | fzf }
-
-# Wasmer
-export WASMER_DIR="~/.wasmer"
-[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# Eval direnv to dynamically load and unload enviroment variables based on different projects
-if [[ $(command -v direnv) == "" ]]; then
-else
-	eval "$(direnv hook zsh)"
-fi
-
-# bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
-# Bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
