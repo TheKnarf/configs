@@ -1,12 +1,70 @@
-#!/bin/bash
+#!/bin/bash -e
 
-CONFIG="install.json"
-DOTBOT_DIR="dotbot"
+# Colors
+BOLDGREEN="\e[1;32m"
+BOLDBLUE="\e[1;34m"
+ITALICRED="\e[3;31m"
+ENDCOLOR="\e[0m"
 
-DOTBOT_BIN="bin/dotbot"
+echo "Setting up enviroment"
+echo ""
+
+# -----------------------------------------
+#  Fetch git submodules and setup symlinks
+# -----------------------------------------
+
+# Installing submodules
+echo "- Fetching git submodules"
+git submodule update --init --recursive
+
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-cd "${BASEDIR}"
-git submodule update --init --recursive ${DOTBOT_DIR}
+function setup_link () {
+	SOURCE_FILE="$BASEDIR/$2"
+	DEST_FILE="$1"
 
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" $@
+	# Ensure that the source file (or directory) exists before setting up a link
+	if ! [[ -f "$SOURCE_FILE" ]] && ! [[ -d "$SOURCE_FILE" ]]; then
+		printf "  ${ITALICRED}✗ $SOURCE_FILE doesn't exist${ENDCOLOR}\n"
+		exit 1
+	fi
+
+	if [ -L ${DEST_FILE} ] ; then
+		if [ -e ${DEST_FILE} ] ; then
+			printf "  ${BOLDGREEN}✓ Good link (${DEST_FILE})${ENDCOLOR}\n"
+		else
+			printf "  ${ITALICRED}✗ Broken link (${DEST_FILE})${ENDCOLOR}\n"
+		fi
+	elif [ -e ${DEST_FILE} ] ; then
+		printf "  ${ITALICRED}✗ Not a link (${DEST_FILE})${ENDCOLOR}\n"
+	else
+		ln -s $SOURCE_FILE $DEST_FILE
+		printf "  ${BOLDBLUE}✓ Linked (${DEST_FILE})$ENDCOLOR}\n"
+	fi
+
+}
+
+echo "- Setting up symlinks"
+setup_link "$HOME/.screenrc" "screenrc"
+setup_link "$HOME/.tmux.conf" "tmux.conf"
+setup_link "$HOME/.vimrc" "vimrc"
+setup_link "$HOME/.vim" "vim/"
+setup_link "$HOME/.zshrc" "zshrc"
+setup_link "$HOME/.ctags" "ctags"
+setup_link "$HOME/.oh-my-zsh" "oh-my-zsh"
+setup_link "$HOME/.gitconfig" "gitconfig"
+setup_link "$HOME/.iterm2_profile" "iterm2_profile"
+setup_link "$HOME/.witchcraft-scripts" "witchcraft-scripts"
+
+# -----------------------------------------
+#              Vim setup
+# -----------------------------------------
+
+# Installing vim plugins
+echo "- Installing vim plugins"
+vim +PluginInstall +qall
+
+# Create backup and tmp folder for vim
+mkdir -p ~/.vim/backup
+mkdir -p ~/.vim/tmp
+
