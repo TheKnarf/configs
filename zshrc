@@ -39,9 +39,15 @@ fi
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/configs/zsh_custom
 ZSH_THEME="robbyrussell_theknarf_mod"
-plugins=(git-flow zsh-autosuggestions ssh-agent man-color bindkey-vim)
-plugins+=(zsh-yarn-completions)
-plugins+=(kubectl)
+plugins=(
+	git-flow
+	zsh-autosuggestions
+	ssh-agent
+	man-color
+	bindkey-vim
+	zsh-yarn-completions
+	kubectl
+)
 source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
