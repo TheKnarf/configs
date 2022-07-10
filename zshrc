@@ -9,19 +9,30 @@ export GOPATH=$HOME/Dropbox/golang
 alias typora="open -a typora"
 
 # Setup path
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin
-export PATH=$PATH:$HOME/Dropbox/Projects/depot_tools
-export PATH=$PATH:$HOME/bin
-export PATH=$PATH:$HOME/Library/Haskell/bin
-export PATH=$PATH:./node_modules/.bin
-export PATH=$PATH:./vendor/bin  # PHP Composer bin folder
-export PATH=$PATH:~/.cargo/bin  # Rust bin path
-export PATH=$PATH:~/.cabal/bin  # Cabal bin path
-export PATH=$PATH:/usr/local/heroku/bin # Added by the Heroku Toolbelt
-export PATH=$PATH:$GOPATH/bin
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH=$PATH:/snap/bin
+path+=(
+	'/usr/bin'
+	'/bin'
+	'/usr/sbin'
+	'/sbin'
+	'/usr/local/bin'
+	'/usr/local/git/bin'
+	"$HOME/Dropbox/Projects/depot_tools"
+	"$HOME/bin"
+	"$HOME/Library/Haskell/bin"
+	'./node_modules/.bin'
+	'./vendor/bin'          # PHP Composer bin folder
+	'~/.cargo/bin'          # Rust bin path
+	'~/.cabal/bin'          # Cabal bin path
+	'/usr/local/heroku/bin' # Added by the Heroku Toolbelt
+	"$GOPATH/bin"
+	"$HOME/.yarn/bin"
+	"$HOME/.config/yarn/global/node_modules/.bin"
+	'/usr/local/sbin'
+	'/snap/bin'
+)
+export PATH
+
+alias paths_debug="echo $PATH | sed 's/:/\n/g' | sort | uniq -c"
 
 # Ensure that MANPATH have a : in the beginning
 export MANPATH=":$MANPATH"
