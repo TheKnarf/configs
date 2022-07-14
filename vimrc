@@ -26,9 +26,6 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 "------------------------------------------------
 
-" Setting up fzf (installed with brew install fzf)
-set rtp+=/usr/local/opt/fzf
-
 "- Utf-8 encoding as standard
 set encoding=utf-8
 
