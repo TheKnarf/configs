@@ -8,8 +8,6 @@ RUN useradd -m -s /bin/zsh tester &&\
 	 mkdir -p /home/tester/.ssh && \
 	 chown -R tester:tester /home/tester
 
-RUN /usr/bin/ssh-keyscan -t rsa -H github.com >> /home/tester/.ssh/known_hosts
-
 # Add dotfiles and chown
 ADD --chown=tester:tester . /home/tester/configs
 
