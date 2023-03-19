@@ -124,6 +124,11 @@ brew install \
 # Ensure that we have versionj 16 of node
 brew link --overwrite node@16
 
+# Windows manager (and shortcut manager)
+brew install \
+	koekeishiya/formulae/yabai \
+	koekeishiya/formulae/skhd
+
 # Casks
 brew_cask_check_if_installed google-chrome
 brew_cask_check_if_installed dropbox
