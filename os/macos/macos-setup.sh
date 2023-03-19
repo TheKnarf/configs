@@ -117,6 +117,7 @@ brew install \
 	node@16 \
 	cmake \
 	rustup-init \
+	rust-analyzer \
 	yarn \
 	go
 
