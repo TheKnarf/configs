@@ -132,7 +132,7 @@ brew install \
 # Casks
 brew_cask_check_if_installed google-chrome
 brew_cask_check_if_installed dropbox
-brew_cask_check_if_installed alfred
+brew_cask_check_if_installed raycast
 brew_cask_check_if_installed spotify
 brew_cask_check_if_installed slack
 brew_cask_check_if_installed discord
