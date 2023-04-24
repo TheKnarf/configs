@@ -146,6 +146,7 @@ brew_cask_check_if_installed webtorrent
 brew_cask_check_if_installed the-unarchiver
 brew_cask_check_if_installed blender
 brew_cask_check_if_installed talon
+brew_cask_check_if_installed cron
 
 # Virtualization
 brew_cask_check_if_installed virtualbox
