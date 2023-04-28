@@ -56,6 +56,7 @@ plugins=(
 	bun
 	direnv
 	fzf
+	exa
 )
 source $ZSH/oh-my-zsh.sh
 

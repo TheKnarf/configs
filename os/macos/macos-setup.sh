@@ -110,6 +110,7 @@ brew install \
 	direnv \
 	git-annex \
 	stow \
+	exa \
 	bat
 
 # Programming
