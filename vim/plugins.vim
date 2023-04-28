@@ -9,6 +9,14 @@ Plug 'reasonml-editor/vim-reason'      "  ReasonML plugin
 Plug 'theknarf/maude.vim'              "  Maude syntax highlighting
 Plug 'noahfrederick/vim-skeleton'
 
+"  Fern
+Plug 'lambdalisue/fern.vim'            "  Fern a general purpose async tree viewer
+Plug 'lambdalisue/fern-hijack.vim'
+Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'lambdalisue/glyph-palette.vim'
+Plug 'lambdalisue/fern-mapping-project-top.vim'
+
 " fzf setup
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'

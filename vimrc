@@ -24,6 +24,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
+"  Fern
+let g:fern#renderer = "nerdfont"
+
 "------------------------------------------------
 
 "- Utf-8 encoding as standard
@@ -193,14 +196,14 @@ nnoremap <leader>x :x!<cr>
 nnoremap <leader>q :q<cr>
 
 "- Open vimrc in split mode
-nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>ev :e $MYVIMRC<cr>
 
 "- Open header file and source file
 nnoremap <leader>eh :e %:p:h/%:t:r.h<cr>
 nnoremap <leader>ec :e %:p:h/%:t:r.c<cr>
 
 "- Fileview
-nnoremap <leader>v :Vex .<cr>
+nnoremap <leader>v :Fern . -drawer -toggle<cr>
 let g:netrw_banner = 0
 let g:netrw_browse_split = 4
 let g:netrw_winsize = 25
