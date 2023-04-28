@@ -163,3 +163,4 @@ brew_cask_check_if_installed font-source-code-pro-for-powerline
 brew_cask_check_if_installed font-consolas-for-powerline
 brew_cask_check_if_installed font-fira-mono-for-powerline
 brew_cask_check_if_installed font-roboto-mono-for-powerline
+brew_cask_check_if_installed font-symbols-only-nerd-font
