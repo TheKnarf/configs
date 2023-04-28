@@ -8,6 +8,7 @@ Plug 'tpope/vim-dispatch'              "  Run make or other tasks async in the b
 Plug 'reasonml-editor/vim-reason'      "  ReasonML plugin
 Plug 'theknarf/maude.vim'              "  Maude syntax highlighting
 Plug 'noahfrederick/vim-skeleton'
+Plug 'severin-lemaignan/vim-minimap'   "  A code minimap for Vim
 
 "  Fern
 Plug 'lambdalisue/fern.vim'            "  Fern a general purpose async tree viewer
