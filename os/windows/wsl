@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# First install wsl, then run this script inside of wsl
+
+sudo apt update -y
+sudo apt upgrade -y
+
+sudo apt install -y \
+	zsh \
+	tmux \
+	fzf \
+	ripgrep \
+	wget \
+	jq \
+	curl \
+	build-essential \
+	zip \
+	unzip \
+	bat
+
+# NodeJS
+if ! command -v node &> /dev/null
+then
+	echo "Installing NodeJS"
+	curl -sL https://deb.nodesource.com/setup_18.x | sudo bash -
+	sudo apt install -y -f nodejs
+fi
+
+# Set the correct shell
+chsh -s /bin/zsh
