@@ -8,6 +8,13 @@ export GOPATH=$HOME/Dropbox/golang
 
 alias typora="open -a typora"
 
+# Use the `man` command to view Markdown files
+function mat {
+	tempfile=$(mktemp)
+	pandoc --to man "$1" > "$tempfile"
+	man $tempfile
+}
+
 # Setup path
 path+=(
 	'/usr/bin'
