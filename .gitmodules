@@ -10,3 +10,6 @@
 [submodule "vim-plug"]
 	path = vim-plug
 	url = https://github.com/junegunn/vim-plug.git
+[submodule "hammerspoon/hhann"]
+	path = hammerspoon/hhann
+	url = https://github.com/szymonkaliski/hhann.git

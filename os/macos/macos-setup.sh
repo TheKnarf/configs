@@ -130,6 +130,9 @@ brew install \
 	koekeishiya/formulae/yabai \
 	koekeishiya/formulae/skhd
 
+# Automation
+brew install hammerspoon
+
 # Casks
 brew_cask_check_if_installed google-chrome
 brew_cask_check_if_installed dropbox
