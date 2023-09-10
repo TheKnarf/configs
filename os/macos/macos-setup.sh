@@ -120,6 +120,7 @@ brew install \
 	rustup-init \
 	rust-analyzer \
 	yarn \
+	bun \
 	go
 
 # Ensure that we have versionj 16 of node
