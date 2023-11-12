@@ -195,6 +195,50 @@ nnoremap <leader>w :w!<cr>
 nnoremap <leader>x :x!<cr>
 nnoremap <leader>q :q<cr>
 
+"- Tmux eval
+"    First add the following to your .bashrc/.zshrc:
+" 
+" ```
+" mark_pane_eval() {
+"  tmux setenv -t $TMUX_PANE pane_name eval
+" }
+" ```
+"
+" and then run mark_pane_eval in a pane in tmux.
+" Then the command belove should be ready:
+" Script-local variable to store the user-provided pane ID
+let s:storedPaneId = ""
+
+function! SendToEvalPane(content)
+    " Try to fetch the pane ID from the stored variable first
+    if s:storedPaneId != ""
+        let evalPaneId = s:storedPaneId
+    else
+        " Otherwise, attempt to find the pane marked as 'eval'
+        let evalPaneId = system("tmux list-panes -F '#{pane_id} #{pane_env_pane_name}' | grep -w 'eval' | cut -d ' ' -f 1")
+        let evalPaneId = substitute(evalPaneId, '\n$', '', '')
+    endif
+
+    " Check if evalPaneId is empty, indicating no matching pane was found or provided
+    if evalPaneId == ""
+        " Ask the user for the pane ID
+        let evalPaneId = input("Pane named 'eval' not found. Please enter pane ID: ")
+        if evalPaneId == ""
+            echo "No pane ID provided. Aborting."
+            return
+        else
+            " Store the user-provided pane ID for future use
+            let s:storedPaneId = evalPaneId
+        endif
+    endif
+
+    " Send the provided content to the identified pane
+    let cmd = "tmux send-keys -t " . evalPaneId . " " . shellescape(a:content)
+    call system(cmd)
+endfunction
+
+nnoremap <leader>ee "zyy :call SendToEvalPane(@z)<CR>
+
 "- Open vimrc in split mode
 nnoremap <leader>ev :e $MYVIMRC<cr>
 
