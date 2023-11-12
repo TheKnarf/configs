@@ -64,7 +64,6 @@ setup_link "$HOME/.iterm2_profile" "iterm2_profile"
 setup_link "$HOME/.witchcraft-scripts" "witchcraft-scripts"
 setup_link "$HOME/.config/yabai/yabairc" "yabairc"
 setup_link "$HOME/.config/skhd/skhdrc" "skhdrc"
-setup_link "$HOME/.hammerspoon" "hammerspoon"
 
 # -----------------------------------------
 #              Vim setup
