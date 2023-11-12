@@ -83,13 +83,6 @@ brew install git
 brew install --cask iTerm2
 brew install kitty # The fast, feature-rich, GPU based terminal emulator
 
-echo 'Specify the preferences directory for iTerm2'
-defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.iterm2_profile"
-
-echo 'Tell iTerm2 to use the custom preferences in the directory'
-defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
-
-
 # Enviroment
 brew install \
 	z \
