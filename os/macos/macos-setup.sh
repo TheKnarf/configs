@@ -124,28 +124,28 @@ brew install \
 	koekeishiya/formulae/yabai \
 	koekeishiya/formulae/skhd
 
-# Casks
+# General Casks
 brew_cask_check_if_installed google-chrome
 brew_cask_check_if_installed dropbox
 brew_cask_check_if_installed raycast
 brew_cask_check_if_installed spotify
-brew_cask_check_if_installed slack
 brew_cask_check_if_installed discord
 brew_cask_check_if_installed vlc
-brew_cask_check_if_installed sublime-text
 brew_cask_check_if_installed disk-inventory-x
-brew_cask_check_if_installed forklift
-brew_cask_check_if_installed typora
-brew_cask_check_if_installed postman
 brew_cask_check_if_installed webtorrent
 brew_cask_check_if_installed the-unarchiver
 brew_cask_check_if_installed blender
-brew_cask_check_if_installed talon
-brew_cask_check_if_installed cron
+brew_cask_check_if_installed obsidian
 
-# Virtualization
-brew_cask_check_if_installed virtualbox
-brew_cask_check_if_installed vagrant
+# Webdev casks
+brew_cask_check_if_installed forklift
+brew_cask_check_if_installed postman
+brew_cask_check_if_installed visual-studio-code
+
+# Work
+brew_cask_check_if_installed slack
+brew_cask_check_if_installed microsoft-teams
+brew_cask_check_if_installed ticktick
 
 # Games
 brew_cask_check_if_installed minecraft
