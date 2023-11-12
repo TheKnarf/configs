@@ -115,7 +115,7 @@ brew install \
 
 # Programming
 brew install \
-	node@16 \
+	node@18 \
 	cmake \
 	rustup-init \
 	rust-analyzer \
@@ -123,8 +123,8 @@ brew install \
 	bun \
 	go
 
-# Ensure that we have versionj 16 of node
-brew link --overwrite node@16
+# Ensure that we have v18 of node
+brew link --overwrite node@18
 
 # Windows manager (and shortcut manager)
 brew install \
