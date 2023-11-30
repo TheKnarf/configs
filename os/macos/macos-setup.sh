@@ -96,7 +96,6 @@ brew install \
 	fswatch \
 	reattach-to-user-namespace \
 	htop \
-	neovim \
 	jq \
 	cloc \
 	coreutils \
@@ -105,6 +104,12 @@ brew install \
 	stow \
 	exa \
 	bat
+
+# Editors
+brew install \
+	neovim \
+	vim \
+	helix
 
 # Programming
 brew install \
