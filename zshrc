@@ -47,6 +47,9 @@ export MANPATH=":$MANPATH"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+# Make Node prefer ipv4
+export NODE_OPTIONS="--dns-result-order=ipv4first"
+
 # Oh my zsh
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/configs/zsh_custom
