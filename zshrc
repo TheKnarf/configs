@@ -4,8 +4,6 @@ then
 . `brew --prefix`/etc/profile.d/z.sh
 fi
 
-export GOPATH=$HOME/Dropbox/golang
-
 alias typora="open -a typora"
 
 # Use the `man` command to view Markdown files
