@@ -1,5 +1,5 @@
 if [ -n "$SSH_TTY" ]; then
-	SHOWHOSTNAME="$(hostname) "
+	SHOWHOSTNAME="$(uname -n) "
 else
 	SHOWHOSTNAME=""
 fi
