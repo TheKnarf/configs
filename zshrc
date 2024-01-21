@@ -1,4 +1,15 @@
-export PATH=/opt/homebrew/bin/:/opt/homebrew/sbin/:$PATH
+# Determine the operating system
+os=$(uname -s)
+
+# Check if the operating system is macOS
+if [ "$os" = "Darwin" ]; then
+    export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
+elif [ "$os" = "Linux" ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+else
+    echo "Unsupported operating system: $os"
+fi
+
 if command -v brew &> /dev/null
 then
 . `brew --prefix`/etc/profile.d/z.sh
