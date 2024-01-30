@@ -123,6 +123,9 @@ brew install \
 
 brew install --cask orbstack
 
+# Password manager
+brew install 1password 1password-cli
+
 # Windows manager (and shortcut manager)
 brew install \
 	koekeishiya/formulae/yabai \
