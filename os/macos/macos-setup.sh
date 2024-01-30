@@ -113,7 +113,7 @@ brew install \
 
 # Programming
 brew install \
-	node@18 \
+	node \
 	cmake \
 	rustup-init \
 	rust-analyzer \
@@ -122,9 +122,6 @@ brew install \
 	go
 
 brew install --cask orbstack
-
-# Ensure that we have v18 of node
-brew link --overwrite node@18
 
 # Windows manager (and shortcut manager)
 brew install \
