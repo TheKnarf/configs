@@ -121,6 +121,8 @@ brew install \
 	bun \
 	go
 
+brew install --cask orbstack
+
 # Ensure that we have v18 of node
 brew link --overwrite node@18
 
