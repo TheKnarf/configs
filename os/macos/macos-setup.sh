@@ -146,6 +146,7 @@ brew_cask_check_if_installed webtorrent
 brew_cask_check_if_installed the-unarchiver
 brew_cask_check_if_installed blender
 brew_cask_check_if_installed obsidian
+brew_cask_check_if_installed notion
 
 # Webdev casks
 brew_cask_check_if_installed forklift
