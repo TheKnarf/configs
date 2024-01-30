@@ -13,6 +13,10 @@ fi
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
 
+# Dark mode
+echo "Set dark mode"
+osascript -l JavaScript -e "Application('System Events').appearancePreferences.darkMode = true"
+
 echo "Update setting: expand save panel by default"
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
