@@ -118,11 +118,12 @@ brew install \
 # Programming
 brew install \
 	node \
+	yarn \
+	pnpm \
+	bun \
 	cmake \
 	rustup-init \
 	rust-analyzer \
-	yarn \
-	bun \
 	go
 
 brew install --cask orbstack
