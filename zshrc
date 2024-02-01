@@ -15,6 +15,12 @@ then
 . `brew --prefix`/etc/profile.d/z.sh
 fi
 
+# fnm (Fast and simple Node version manager)
+if command -v fnm &> /dev/null
+then
+	eval "$(fnm env --use-on-cd)"
+fi
+
 alias typora="open -a typora"
 
 # Use the `man` command to view Markdown files

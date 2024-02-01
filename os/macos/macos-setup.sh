@@ -121,6 +121,7 @@ brew install \
 	yarn \
 	pnpm \
 	bun \
+	fnm \
 	cmake \
 	rustup-init \
 	rust-analyzer \
