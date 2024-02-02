@@ -65,6 +65,9 @@ export LANG=en_US.UTF-8
 # Make Node prefer ipv4
 export NODE_OPTIONS="--dns-result-order=ipv4first"
 
+# https://consoledonottrack.com/
+export DO_NOT_TRACK=1
+
 # Oh my zsh
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/configs/zsh_custom
