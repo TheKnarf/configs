@@ -129,6 +129,11 @@ brew install \
 
 brew install --cask orbstack
 
+# Cloud dev
+brew install \
+	azure-clie \
+	terraform
+
 # Password manager
 brew install 1password 1password-cli
 
