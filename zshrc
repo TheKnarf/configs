@@ -5,7 +5,9 @@ os=$(uname -s)
 if [ "$os" = "Darwin" ]; then
     export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
 elif [ "$os" = "Linux" ]; then
+	if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+	fi
 else
     echo "Unsupported operating system: $os"
 fi
