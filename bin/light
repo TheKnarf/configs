@@ -1,4 +1,0 @@
-#/bin/bash
-
-JSON="{ \"on\": $1, \"bri\": $2 }"
-/usr/bin/curl 192.168.1.106/api/25B1ECEB46/lights/1/state -X PUT -d "$JSON"

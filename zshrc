@@ -42,6 +42,7 @@ path+=(
 	'/usr/local/git/bin'
 	"$HOME/Dropbox/Projects/depot_tools"
 	"$HOME/bin"
+	"$HOME/.bin"
 	"$HOME/Library/Haskell/bin"
 	'./node_modules/.bin'
 	'./vendor/bin'          # PHP Composer bin folder
