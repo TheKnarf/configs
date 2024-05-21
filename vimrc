@@ -55,9 +55,11 @@ set hidden
 
 "- Activates the mouse
 set mouse=nirc
-if &term =~ '^screen'
-	" tmux knows the extended mouse mode
-	set ttymouse=xterm2
+if !has('nvim')
+	if &term =~ '^screen'
+		" tmux knows the extended mouse mode
+		set ttymouse=xterm2
+	endif
 endif
 
 "- Netrw auto clos
