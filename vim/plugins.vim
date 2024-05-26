@@ -26,6 +26,3 @@ Plug 'leafgarland/typescript-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ziglang/zig.vim'
 
-" Language server support
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
