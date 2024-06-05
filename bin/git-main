@@ -1,0 +1,26 @@
+#!/bin/bash
+# Based on: https://stackoverflow.com/questions/3216360/merge-update-and-pull-git-branches-without-using-checkouts/17722977#17722977
+
+show_help() {
+	echo "usage: git main [-h]"
+	echo ""
+  echo "  Update main branch and then switch to it."
+  echo "  This way I shouldn't need to pull after switching branches."
+  echo "  This shouldn't trigger a hot-reload if I am running something in hot-reload mode and are switching back to main after merging in a feature branch."
+}
+
+if [[ "$1" == "-h" ]]; then
+  show_help
+  exit 0
+fi
+
+# Can't run `git fetch origin main:main` if I'm on the main branch
+# This isn't really a problem since the command is meant to be used when switching from a feature branch to `main`
+# But as an extra convenience we run this before
+git checkout --quiet -d HEAD
+
+# Update the main branch before switching to it
+# Assuming that the remote is called `origin`
+git fetch origin main:main
+
+git checkout main
