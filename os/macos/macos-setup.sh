@@ -87,6 +87,8 @@ brew install git
 brew install --cask iTerm2
 brew install kitty # The fast, feature-rich, GPU based terminal emulator
 
+brew bundle
+
 # Enviroment
 brew install \
 	z \

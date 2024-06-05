@@ -1,0 +1,7 @@
+# You would normally commit lock-files in projects
+# But I'm not sure what the point of a lockfile for Homebrew is
+# as far as I know Homebrew can't install older versions of packages
+# and it auto updates stuff anyway
+#
+# So I'm going to keep the file around locally, but gitignore it so that its not commited
+Brewfile.lock.json
