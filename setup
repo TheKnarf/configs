@@ -64,6 +64,13 @@ setup_link "$HOME/.config/skhd/skhdrc" "skhdrc"
 setup_link "$HOME/.bin" "bin"
 setup_link "$HOME/.config/nvim" "nvim"
 
+if grep -q 'ID=nixos' /etc/os-release; then
+	echo "- Setting up NixOS spesific symlinks"
+	setup_link "$HOME/.config/home-manager/home.nix" "os/nixos/home.nix"
+else
+	echo "- Not running on NixOS, skipping NixOS-specific tasks."
+fi
+
 # -----------------------------------------
 #              Vim setup
 # -----------------------------------------
