@@ -107,7 +107,6 @@ brew install \
 	coreutils \
 	direnv \
 	git-annex \
-	stow \
 	exa \
 	bat
 
@@ -133,7 +132,7 @@ brew install --cask orbstack
 
 # Cloud dev
 brew install \
-	azure-clie \
+	azure-cli \
 	terraform
 
 # Password manager
