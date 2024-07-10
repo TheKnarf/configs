@@ -82,61 +82,9 @@ brew_cask_check_if_installed () {
 	fi
 }
 
-
-brew install git
-brew install --cask iTerm2
-brew install kitty # The fast, feature-rich, GPU based terminal emulator
-
 brew bundle
 
-# Enviroment
-brew install \
-	z \
-	tmux \
-	fzf \
-	fd \
-	rg \
-	wget \
-	tree \
-	watch \
-	fswatch \
-	reattach-to-user-namespace \
-	htop \
-	jq \
-	cloc \
-	coreutils \
-	direnv \
-	git-annex \
-	exa \
-	bat
-
-# Editors
-brew install \
-	neovim \
-	vim \
-	helix
-
-# Programming
-brew install \
-	node \
-	yarn \
-	pnpm \
-	bun \
-	fnm \
-	cmake \
-	rustup-init \
-	rust-analyzer \
-	go
-
-brew install --cask orbstack
-
-# Cloud dev
-brew install \
-	azure-cli \
-	terraform
-
-# Password manager
-brew install 1password 1password-cli
+brew install oven-sh/bun/bun
 
 # Windows manager (and shortcut manager)
 brew install \
@@ -173,8 +121,3 @@ brew_cask_check_if_installed ticktick
 # Games
 brew_cask_check_if_installed minecraft
 brew_cask_check_if_installed steam
-
-# Font
-brew install svn # needed for cask-fonts
-brew tap homebrew/cask-fonts
-brew_cask_check_if_installed font-symbols-only-nerd-font

@@ -1,6 +1,53 @@
+# Terminal
+cask "kitty"
 
-# Github CLI tool
-brew "gh"
+# Enviroment
+brew "git"
 
-# tui file browser https://github.com/sxyazi/yazi
-brew "yazi"
+# Enviroment
+brew "z"
+brew "tmux"
+brew "fzf"
+brew "fd"
+brew "rg"
+brew "wget"
+brew "tree"
+brew "watch"
+brew "fswatch"
+brew "reattach-to-user-namespace"
+brew "htop"
+brew "jq"
+brew "cloc"
+brew "coreutils"
+brew "direnv"
+brew "git-annex"
+brew "bat"
+brew "eza" # Maintained fork of exa
+brew "gh" # Github CLI tool
+brew "yazi" # tui file browser https://github.com/sxyazi/yazi
+
+# Editors
+brew "neovim"
+brew "vim"
+brew "helix"
+
+# Programming
+brew "fnm" # Node package no longer needed, use fnm instead
+           # yarn / pnpm not needed, use corepack instead
+brew "cmake"
+brew "rustup-init"
+brew "rust-analyzer"
+brew "go"
+
+cask "orbstack" # Docker Desktop alternative
+
+# Cloud dev
+brew "azure-cli"
+brew "terraform"
+
+# Password manager
+cask "1password"
+cask "1password-cli"
+
+# Fonts
+cask "font-symbols-only-nerd-font"
