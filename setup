@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/usr/bin/env -S bash -e
 
 if command -v neofetch &> /dev/null
 then
@@ -66,7 +66,7 @@ setup_link "$HOME/.config/nvim" "nvim"
 
 if grep -q 'ID=nixos' /etc/os-release; then
 	echo "- Setting up NixOS spesific symlinks"
-	setup_link "$HOME/.config/home-manager/home.nix" "os/nixos/home.nix"
+	setup_link "$HOME/.config/home-manager" "os/nixos/home-manager"
 else
 	echo "- Not running on NixOS, skipping NixOS-specific tasks."
 fi
