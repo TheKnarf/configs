@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Check that homebrew is installed
+command -v brew >/dev/null 2>&1 || { \
+	echo >&2 "Homebrew not install"; \
+	exit 1; \
+}
+
+# Use homebrew to check that wakeonlan is installed
+if brew ls --versions wakeonlan > /dev/null; then
+	echo "wakeonlan allready installed"
+else
+	echo "wakeonlan not installed, run `brew install wakeonlan`"
+	exit 1
+fi
+
+# List of servers to use wakeonlan with
+# The list should be pairwise a name and the MAC address of the network card (seperated by tab)
+SERVERS=(
+	"nixos	10:7c:61:41:14:be"
+)
+
+# Use fzf to pick a server from the list
+MACADDRESS=$(printf '%s\n' "${SERVERS[@]}"|fzf --with-nth 1 --delimiter="\t"|awk '{print $2}')
+
+# Run wakeonlan with the selected mac address for the server
+wakeonlan $MACADDRESS
