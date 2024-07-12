@@ -1,27 +1,9 @@
 # NixOS setup
 
-## Machine config
+NixOS setup using flakes.
 
 ```bash
-$ sudo cat /etc/nixos/configuration.nix
-{ config, pkgs, ... }:
-
-{
-  imports = [
-    /home/knarf/configs/os/nixos/machine/configuration.nix
-  ];
-}
+sudo nixos-rebuild switch --flake . # To rebuild the machine
+home-manager switch --flake .
 ```
-
-This way I can version control my config by having an empty configurations.nix that just imports the one in the repo.
-
-After making changes simply run:
-
-```bash
-sudo nixos-rebuild switch
-```
-
-## home-manager
-
-[home-manager guide](https://nix-community.github.io/home-manager/)
 

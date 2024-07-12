@@ -1,9 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
 	imports = [
 		./env.nix
 		./wayland.nix
+    ./eww.nix
+    ./apps.nix
 	];
 
   # Home Manager needs a bit of information about you and the paths it should

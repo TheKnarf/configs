@@ -1,12 +1,15 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
 		./hardware-configuration.nix
 		./steam.nix
 		./audio-video.nix
-		<home-manager/nixos>
+    ./virtual.nix
 	];
+
+	# Enable flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -40,13 +43,14 @@
 			"docker"
 			"audio"
 			"seat" # seatd group
+      "incus-admin"
+      "incus"
 		];
     packages = with pkgs; [];
     shell = pkgs.zsh;
   };
 
-  # System packages (allow unfree packages)
-  nixpkgs.config.allowUnfree = true;
+  # System packages
   environment.systemPackages = with pkgs; [
     vim
     wget
@@ -55,20 +59,18 @@
     bash
     home-manager
     zsh
-    kitty
     pciutils
   ];
 
   programs.zsh.enable = true;
 
-  # enable docker
-  virtualisation.docker.enable = true;
-
+/*
   home-manager.users.knarf = { pkgs, ... }: {
     # The state version is required and should stay at the version you
     # originally installed.
     home.stateVersion = "24.05";
   };
+*/
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -33,7 +33,8 @@
 		pkgs.helix
 
 		# Programming
-		pkgs.fnm # Fast and simple Node.js version manager
+    pkgs.nodejs_20
+    pkgs.corepack
 		pkgs.bun
 		pkgs.rustup
 		pkgs.go
