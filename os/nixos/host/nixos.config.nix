@@ -2,23 +2,32 @@
 
 {
   imports = [
-		./hardware-configuration.nix
-		./steam.nix
-		./audio-video.nix
-    ./virtual.nix
+    # Hardware configuration
+		./nixos.hardware.nix
+
+    # Modules
+		./mods/steam.nix
+		./mods/audio-video.nix
+    ./mods/virtual.nix
 	];
 
 	# Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Bootloader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+  };
 
   # Enable networking
-  networking.hostName = "nixos";
-  networking.interfaces.enp5s0.wakeOnLan.enable = true;
-  networking.networkmanager.enable = true;
+  networking = {
+    networkmanager.enable = true;
+    hostName = "nixos";
+
+    # Enable wake on lan
+    interfaces.enp5s0.wakeOnLan.enable = true;
+  };
 
   # Time zone & locale
   time.timeZone = "Europe/Oslo";
@@ -63,22 +72,6 @@
   ];
 
   programs.zsh.enable = true;
-
-/*
-  home-manager.users.knarf = { pkgs, ... }: {
-    # The state version is required and should stay at the version you
-    # originally installed.
-    home.stateVersion = "24.05";
-  };
-*/
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
