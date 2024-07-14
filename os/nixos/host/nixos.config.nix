@@ -9,6 +9,7 @@
 		./mods/steam.nix
 		./mods/audio-video.nix
     ./mods/virtual.nix
+    ./mods/gnome-x11.nix
 	];
 
 	# Enable flakes

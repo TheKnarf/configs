@@ -3,7 +3,7 @@
 {
 	imports = [
 		./env.nix
-		./wayland.nix
+#		./wayland.nix
     ./eww.nix
     ./apps.nix
 	];
