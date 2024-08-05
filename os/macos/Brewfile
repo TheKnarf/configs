@@ -51,3 +51,6 @@ cask "1password-cli"
 
 # Fonts
 cask "font-symbols-only-nerd-font"
+
+# AI
+brew "ollama"
