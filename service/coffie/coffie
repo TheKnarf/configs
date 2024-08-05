@@ -1,0 +1,140 @@
+#!/bin/bash
+
+# Define the plist file path
+PLIST_FILE="$HOME/Library/LaunchAgents/com.user.coffie.plist"
+SERVICE_NAME="com.user.coffie"
+LOG_FILE="$HOME/coffie.log"
+
+# Function to show help
+show_help() {
+    echo "Usage: coffie [command]"
+    echo ""
+    echo "Commands:"
+    echo "  help, --help, -h       Show this help message"
+    echo "  version, --version, -v Show the version number"
+    echo "  install-service        Install the service to start coffie at login"
+    echo "  start-service          Start the coffie service"
+    echo "  status-service         Show the status of the coffie service"
+    echo "  stop-service           Stop the coffie service"
+    echo "  uninstall-service      Uninstall the coffie service"
+}
+
+# Function to show version
+show_version() {
+    echo "coffie version 1.0"
+}
+
+# Function to create plist file for the service
+create_plist() {
+    SCRIPT_PATH=$(cd "$(dirname "$0")"; pwd)/$(basename "$0")
+    cat <<EOF >"$PLIST_FILE"
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>$SERVICE_NAME</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>$SCRIPT_PATH</string>
+    </array>
+    <key>StandardOutPath</key>
+    <string>$LOG_FILE</string>
+    <key>StandardErrorPath</key>
+    <string>$LOG_FILE</string>
+    <key>KeepAlive</key>
+    <true/>
+</dict>
+</plist>
+EOF
+}
+
+# Function to install the service
+install_service() {
+    create_plist
+    launchctl load "$PLIST_FILE"
+    echo "Service installed and loaded."
+}
+
+# Function to start the service
+start_service() {
+    if [ -f "$PLIST_FILE" ]; then
+        launchctl start "$SERVICE_NAME"
+        echo "Service started."
+    else
+        echo "Service not installed. Please run 'coffie install-service' first."
+    fi
+}
+
+# Function to show the status of the service
+status_service() {
+    if [ -f "$PLIST_FILE" ]; then
+        service_info=$(launchctl list | grep "$SERVICE_NAME")
+        if [ -z "$service_info" ]; then
+            echo "Service not installed."
+        else
+            IFS=$'\t' read -r PID STATUS LABEL <<< "$service_info"
+            if [ "$PID" == "-" ]; then
+                if [ "$STATUS" == "0" ]; then
+                    echo "Service is loaded but not running."
+                else
+                    echo "Service is not running, last exit status: $STATUS"
+                fi
+            else
+                echo "Service is running with PID: $PID"
+            fi
+        fi
+    else
+        echo "Service not installed."
+    fi
+}
+
+# Function to stop the service
+stop_service() {
+    if [ -f "$PLIST_FILE" ]; then
+        launchctl stop "$SERVICE_NAME"
+        echo "Service stopped."
+    else
+        echo "Service not installed."
+    fi
+}
+
+# Function to uninstall the service
+uninstall_service() {
+    if [ -f "$PLIST_FILE" ]; then
+        launchctl unload "$PLIST_FILE"
+        rm "$PLIST_FILE"
+        echo "Service uninstalled."
+    else
+        echo "Service not installed."
+    fi
+}
+
+# Main script logic
+case "$1" in
+    help|--help|-h)
+        show_help
+        ;;
+    version|--version|-v)
+        show_version
+        ;;
+    install-service)
+        install_service
+        ;;
+    start-service)
+        start_service
+        ;;
+    status-service)
+        status_service
+        ;;
+    stop-service)
+        stop_service
+        ;;
+    uninstall-service)
+        uninstall_service
+        ;;
+    *)
+        caffeinate -dim > "$LOG_FILE" 2>&1
+        ;;
+esac
+

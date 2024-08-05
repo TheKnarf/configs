@@ -60,6 +60,7 @@ path+=(
 	"$HOME/.config/yarn/global/node_modules/.bin"
 	'/usr/local/sbin'
 	'/snap/bin'
+	"$HOME/Library/Python/3.9/bin"
 )
 export PATH
 

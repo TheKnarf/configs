@@ -125,7 +125,7 @@ augroup filetype_cpp
 augroup END
 
 "- Make c and cpp files
-noremap <c-b> :wa<cr>:make!<cr>
+noremap <c-b> :w<cr>:!make<cr>
 noremap <leader><leader> :call ToggleQuickFix()<cr>
 nnoremap <leader>cn :cn<cr>
 nnoremap <leader>cN :cN<cr>

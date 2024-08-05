@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# Show in a tmux popup if not run as `h popup`
+if [ "$1" != "popup" ]; then
+    tmux display-popup -E "$0 popup"
+    exit 0
+fi
+
+# Define colors using tput
+GREEN=$(tput setaf 2)
+RESET=$(tput sgr0)
+BOLD=$(tput bold)
+
+# Helper function to print a table
+print_table() {
+    printf "${BOLD}%-25s${RESET}%-s\n" "$1" "$2"
+}
+
+# Helper function to display section headers and content
+display_section() {
+    local header=$1
+    local check_command=$2
+    local content_command=$3
+    local format=$4
+
+    printf "${GREEN}# ${header} ${RESET}\n"
+    if eval "$check_command"; then
+        eval "$content_command" | while read -r line; do
+            eval "$format"
+        done
+    else
+        printf "No ${header,,} found.\n"
+    fi
+    printf "\n"
+}
+
+main() {
+		# TODO: can I somehow add descriptions to theese?
+    display_section "Scripts in ~/.bin" \
+        "[ -d \"$HOME/.bin\" ]" \
+        "ls \"$HOME/.bin\"" \
+        'print_table "$line" ""'
+
+		# TODO: for some reason this only shows 2 out of 5
+    display_section "Tmux keybindings" \
+        "[ -f \"$HOME/.tmux.conf\" ]" \
+        "awk '/^bind/ { print \$2, \$3 }' \"$HOME/.tmux.conf\" | tr -d '\"'" \
+        'IFS=" " read -r key cmd; print_table "$key" "$cmd"'
+
+		# TODO: this doesnt seem to actually show all of them
+    display_section "Skhdr keybindings" \
+        "[ -f \"$HOME/.config/skhd/skhdrc\" ]" \
+        "awk -F ':' '/^[^#]/ { print \$1 \":\" \$2 }' \"$HOME/.config/skhd/skhdrc\"" \
+        'IFS=":" read -r key cmd; print_table "$key" "$cmd"'
+
+		# TODO: is there a better way than parsing `.zshrc`, what about aliases defined in other files that are included
+		display_section "Custom Global Functions in Zsh" \
+				"[ -f \"$HOME/.zshrc\" ]" \
+				"awk '/^.*\\(\\) \{/{ print \$1 }' \"$HOME/.zshrc\"" \
+				'print_table "$line" ""'
+
+    display_section "Git Aliases" \
+        "git config --get-regexp alias > /dev/null 2>&1" \
+        "git config --get-regexp alias | awk '{print \$1}' | sed 's/^alias\\.//'" \
+        'print_table "$line" ""'
+}
+
+main | less -r -P 'q to close'
+
