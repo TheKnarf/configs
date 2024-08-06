@@ -1,5 +1,6 @@
 # Terminal
 cask "kitty"
+cask "wezterm"
 
 # Enviroment
 brew "git"
@@ -35,15 +36,20 @@ brew "helix"
 brew "fnm" # Node package no longer needed, use fnm instead
            # yarn / pnpm not needed, use corepack instead
 brew "cmake"
-brew "rustup-init"
+brew "rustup"
 brew "rust-analyzer"
 brew "go"
+brew "oven-sh/bun/bun"
 
 cask "orbstack" # Docker Desktop alternative
 
 # Cloud dev
 brew "azure-cli"
 brew "terraform"
+
+# Windows manager (and shortcut manager)
+brew "koekeishiya/formulae/yabai"
+brew "koekeishiya/formulae/skhd"
 
 # Password manager
 cask "1password"
@@ -54,3 +60,34 @@ cask "font-symbols-only-nerd-font"
 
 # AI
 brew "ollama"
+
+# Browsers
+cask "google-chrome"
+#cask "arc" # comment out for now since it was installed manually
+
+# General casks
+cask "dropbox"
+cask "raycast"
+cask "spotify"
+cask "discord"
+cask "vlc"
+cask "disk-inventory-x"
+cask "webtorrent"
+cask "the-unarchiver"
+cask "blender"
+cask "obsidian"
+cask "notion"
+
+# Webdev casks
+cask "forklift"
+cask "postman"
+cask "visual-studio-code"
+
+# Work
+cask "slack"
+cask "microsoft-teams"
+cask "ticktick"
+
+# Games
+cask "minecraft"
+cask "steam"
