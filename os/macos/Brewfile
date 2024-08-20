@@ -37,6 +37,7 @@ brew "fnm" # Node package no longer needed, use fnm instead
            # yarn / pnpm not needed, use corepack instead
 brew "cmake"
 brew "rustup"
+brew "cargo-binstall"
 brew "rust-analyzer"
 brew "go"
 brew "oven-sh/bun/bun"
@@ -91,3 +92,6 @@ cask "ticktick"
 # Games
 cask "minecraft"
 cask "steam"
+
+# Game streaming
+cask "moonlight"
