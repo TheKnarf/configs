@@ -1,8 +1,13 @@
 import React from 'react';
 
-const @BASENAME@ : React.FC = () =>
-	<>
-		@CURSOR@
-	</>;
+type @BASENAME@Props = {
 
-export default @BASENAME@;
+};
+
+export const @BASENAME@ = ({
+
+} : @BASENAME@Props ) => {
+  return (
+		<div>@CURSOR@</div>
+  );
+};
