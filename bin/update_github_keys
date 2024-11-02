@@ -1,0 +1,46 @@
+#!/bin/bash
+
+if ! command -v curl &> /dev/null; then
+  echo "Error: curl is not installed. Please install curl to use this script."
+  exit 1
+fi
+
+if [ -z "$1" ]; then
+  echo "Usage: $0 <github_username>"
+  exit 1
+fi
+
+GITHUB_USER="$1"
+AUTHORIZED_KEYS_FILE="$HOME/.ssh/authorized_keys"
+BACKUP_FILE="$AUTHORIZED_KEYS_FILE.bak"
+
+# Fetch SSH keys from GitHub
+echo "Fetching SSH keys for GitHub user: $GITHUB_USER"
+NEW_KEYS=$(curl -s https://github.com/$GITHUB_USER.keys)
+
+if [ -z "$NEW_KEYS" ]; then
+  echo "No keys found for user $GITHUB_USER on GitHub or failed to fetch keys."
+  exit 1
+fi
+
+# Check if authorized_keys exists and is non-empty
+if [ -f "$AUTHORIZED_KEYS_FILE" ] && [ -s "$AUTHORIZED_KEYS_FILE" ]; then
+  # Compare fetched keys with the current authorized_keys
+  if cmp -s <(echo "$NEW_KEYS") "$AUTHORIZED_KEYS_FILE"; then
+    echo "Keys already up to date."
+    exit 0
+  else
+    # Create a backup only if the keys are different
+    echo "Creating backup of existing authorized_keys file."
+    cp "$AUTHORIZED_KEYS_FILE" "$BACKUP_FILE"
+  fi
+fi
+
+# Overwrite the authorized_keys file with the new keys
+echo "Updating authorized_keys file with new keys."
+echo "$NEW_KEYS" > "$AUTHORIZED_KEYS_FILE"
+
+# Set the correct permissions for the authorized_keys file
+chmod 600 "$AUTHORIZED_KEYS_FILE"
+
+echo "Update complete."
