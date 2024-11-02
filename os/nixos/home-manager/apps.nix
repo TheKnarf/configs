@@ -32,6 +32,10 @@
     # Other
     pkgs.webtorrent_desktop
     pkgs.obsidian
+
+    # Games
+    #pkgs.minecraft
+    pkgs.atlauncher
   ];
 
 }

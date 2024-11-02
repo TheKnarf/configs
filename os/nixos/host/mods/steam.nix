@@ -9,6 +9,9 @@
   ];
 
 	programs.gamemode.enable = true;
+  programs.gamescope.enable = true;
+
+  hardware.steam-hardware.enable = true;
 
   programs.steam = {
     enable = true;
@@ -19,4 +22,15 @@
 
     gamescopeSession.enable = true;
   };
+
+  # VR
+  programs.alvr = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  #pkgs.alvr.override {
+
+  #};
+
 }

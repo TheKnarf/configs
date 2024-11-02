@@ -10,6 +10,8 @@
 		./mods/audio-video.nix
     ./mods/virtual.nix
     ./mods/gnome-x11.nix
+    ./mods/tailscale.nix
+    ./mods/moonlight.nix
 	];
 
 	# Enable flakes
