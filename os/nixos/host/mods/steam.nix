@@ -2,13 +2,13 @@
 
 {
   environment.systemPackages = with pkgs; [
-		mangohud # overlay showing cpu / gpu load, etc
+    mangohud # overlay showing cpu / gpu load, etc
     gamescope
-		protonup
-		lutris
+    protonup
+    lutris
   ];
 
-	programs.gamemode.enable = true;
+  programs.gamemode.enable = true;
   programs.gamescope.enable = true;
 
   hardware.steam-hardware.enable = true;
@@ -28,9 +28,4 @@
     enable = true;
     openFirewall = true;
   };
-
-  #pkgs.alvr.override {
-
-  #};
-
 }

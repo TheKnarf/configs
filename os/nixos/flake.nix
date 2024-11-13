@@ -3,8 +3,8 @@
 
   inputs = {
     nixpkgs = {
-      #url = "github:nixos/nixpkgs/nixos-unstable";
-      url = "github:jopejoe1/nixpkgs/alvr-src";
+      url = "github:nixos/nixpkgs/nixos-unstable";
+      #url = "github:jopejoe1/nixpkgs/alvr-src";
     };
 
     home-manager = {
@@ -41,19 +41,36 @@
       };
       user = "knarf";
     in {
-      # Machine
+      # Machines
       nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
         inherit pkgs;
         inherit system;
 
         modules = [
           ./host/nixos.config.nix
-					home-manager.nixosModules.home-manager
-					{
-						home-manager.useGlobalPkgs = true;
-						home-manager.useUserPackages = true;
-						home-manager.users.${user} = import ./home-manager/home.nix;
-					}
+          home-manager.nixosModules.home-manager
+          {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${user} = import ./home-manager/home.nix;
+          }
+        ];
+
+        specialArgs = {inherit user;};
+      };
+
+      nixosConfigurations."chuwi" = nixpkgs.lib.nixosSystem {
+        inherit pkgs;
+        inherit system;
+
+        modules = [
+          ./host/chuwi.config.nix
+          home-manager.nixosModules.home-manager
+          {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${user} = import ./home-manager/home.nix;
+          }
         ];
 
         specialArgs = {inherit user;};
