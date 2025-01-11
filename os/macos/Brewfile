@@ -1,11 +1,8 @@
 # Terminal
 cask "kitty"
-cask "wezterm"
 
 # Enviroment
 brew "git"
-
-# Enviroment
 brew "z"
 brew "tmux"
 brew "fzf"
@@ -26,6 +23,7 @@ brew "bat"
 brew "eza" # Maintained fork of exa
 brew "gh" # Github CLI tool
 brew "yazi" # tui file browser https://github.com/sxyazi/yazi
+brew "hurl"
 
 # Editors
 brew "neovim"
@@ -46,7 +44,8 @@ cask "orbstack" # Docker Desktop alternative
 
 # Cloud dev
 brew "azure-cli"
-brew "terraform"
+brew "awscli"
+brew "tfenv" # terraform
 
 # Windows manager (and shortcut manager)
 brew "koekeishiya/formulae/yabai"
@@ -78,6 +77,7 @@ cask "the-unarchiver"
 cask "blender"
 cask "obsidian"
 cask "notion"
+cask "shortcat" # like vimium for the whole OS
 
 # Webdev casks
 cask "forklift"
@@ -86,13 +86,8 @@ cask "visual-studio-code"
 
 # Work
 cask "slack"
-cask "microsoft-teams"
-cask "ticktick"
 cask "element" # matrix client
 
 # Games
 cask "minecraft"
 cask "steam"
-
-# Game streaming
-cask "moonlight"
