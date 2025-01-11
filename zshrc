@@ -20,10 +20,9 @@ fi
 # fnm (Fast and simple Node version manager)
 if command -v fnm &> /dev/null
 then
-	eval "$(fnm env --use-on-cd)"
+	eval "$(fnm env --use-on-cd --version-file-strategy recursive)"
 fi
 
-alias typora="open -a typora"
 
 # Use the `man` command to view Markdown files
 function mat {
@@ -38,6 +37,11 @@ gif() {
     ffmpeg -y -i "$1" -v quiet -vf scale=iw/2:ih/2 -pix_fmt rgb8 -r 10 "$output_file" && gifsicle -O3 "$output_file" -o "$output_file"
 }
 
+# IRC / irssi
+export IRCNAME=""
+export IRCNICK="knarf"
+export IRCUSER="knarf"
+
 # Setup path
 path+=(
 	'/usr/bin'
@@ -45,21 +49,15 @@ path+=(
 	'/usr/sbin'
 	'/sbin'
 	'/usr/local/bin'
+	'/usr/local/sbin'
 	'/usr/local/git/bin'
-	"$HOME/Dropbox/Projects/depot_tools"
-	"$HOME/bin"
+	'/snap/bin'
 	"$HOME/.bin"
-	"$HOME/Library/Haskell/bin"
-	'./node_modules/.bin'
 	'./vendor/bin'          # PHP Composer bin folder
 	'~/.cargo/bin'          # Rust bin path
-	'~/.cabal/bin'          # Cabal bin path
-	'/usr/local/heroku/bin' # Added by the Heroku Toolbelt
 	"$GOPATH/bin"
 	"$HOME/.yarn/bin"
 	"$HOME/.config/yarn/global/node_modules/.bin"
-	'/usr/local/sbin'
-	'/snap/bin'
 )
 export PATH
 
@@ -87,7 +85,6 @@ plugins=(
 	ssh-agent
 	man-color
 	bindkey-vim
-	zsh-yarn-completions
 	kubectl
 	wasmer
 	bun
@@ -96,5 +93,3 @@ plugins=(
 	exa
 )
 source $ZSH/oh-my-zsh.sh
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
