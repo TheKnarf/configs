@@ -46,6 +46,7 @@ cask "orbstack" # Docker Desktop alternative
 brew "azure-cli"
 brew "awscli"
 brew "tfenv" # terraform
+cask "google-cloud-sdk"
 
 # Windows manager (and shortcut manager)
 brew "koekeishiya/formulae/yabai"
