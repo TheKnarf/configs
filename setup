@@ -63,6 +63,7 @@ setup_link "$HOME/.config/yabai/yabairc" "yabairc"
 setup_link "$HOME/.config/skhd/skhdrc" "skhdrc"
 setup_link "$HOME/.bin" "bin"
 setup_link "$HOME/.config/nvim" "nvim"
+setup_link "$HOME/.config/helix" "helix"
 
 # -----------------------------------------
 #              Vim setup
