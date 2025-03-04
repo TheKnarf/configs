@@ -2,7 +2,7 @@
 # Based on: https://stackoverflow.com/questions/3216360/merge-update-and-pull-git-branches-without-using-checkouts/17722977#17722977
 
 # Set the target branch here
-TARGET_BRANCH="main"
+TARGET_BRANCH="dev"
 
 show_help() {
   echo "usage: git ${TARGET_BRANCH} [-h]"
