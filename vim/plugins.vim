@@ -32,3 +32,5 @@ Plug 'ziglang/zig.vim'
 " Database
 " Plug 'tpope/vim-dadbod'
 " Plug 'kristijanhusak/vim-dadbod-completion'
+
+Plug 'vimwiki/vimwiki'

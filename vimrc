@@ -27,6 +27,14 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 "  Fern
 let g:fern#renderer = "nerdfont"
 
+"  VimWiki
+let g:vimwiki_list = [
+      \ { 'syntax': 'markdown', 'ext': 'md', 'path': '~/Library/CloudStorage/Dropbox/txt'},
+      \ { 'syntax': 'markdown', 'ext': 'md', 'path': '~/Projects/theknarf/theknarf.github.io'}
+      \]
+
+let g:vimwiki_global_ext = 0
+
 "------------------------------------------------
 
 "- Utf-8 encoding as standard
