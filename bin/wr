@@ -1,0 +1,84 @@
+#!/usr/bin/env bun
+
+import { watch } from "fs/promises";
+import { relative } from "path";
+import { spawn, spawnSync } from "child_process";
+
+const commandArgs = process.argv.slice(2);
+if (commandArgs.length === 0) {
+  console.error("Usage: wr <command>");
+  console.error('Example: wr git diff');
+  process.exit(1);
+}
+
+const isLinux  = process.platform === "linux";
+let   current  : { pid: number; exited: Promise<void> } | null = null;
+let   shutting = false;
+
+// ── git-ignore support ─────────────────────────────────────────────────────
+let hasGit = false;
+try {
+  const help = spawnSync("git", ["check-ignore", "--help"], { stdio: "ignore" });
+  hasGit = help.status === 0 || help.status === 1;
+} catch {}
+
+function isIgnoredByGit(path: string): boolean {
+  if (!hasGit || !path) return false;
+  const result = spawnSync("git", ["check-ignore", path], { stdio: "ignore" });
+  return result.status === 0;
+}
+
+// ── process management ────────────────────────────────────────────────────
+async function killCurrent() {
+  if (!current) return;
+  try {
+    if (isLinux) {
+      process.kill(-current.pid, "SIGTERM");
+    } else {
+      process.kill(current.pid, "SIGTERM");
+    }
+    await current.exited;
+  } catch {}
+  current = null;
+}
+
+async function run() {
+  await killCurrent();
+
+  console.clear();
+  console.log("▶️  Running:", commandArgs.join(" "), "\n");
+
+  const child = spawn(commandArgs[0], commandArgs.slice(1), {
+    stdio: "inherit",
+    detached: true,
+  });
+
+  // On UNIX, detached:true makes it a new process group
+  child.unref();
+
+  current = {
+    pid: child.pid!,
+    exited: new Promise(resolve =>
+      child.on("exit", () => resolve())
+    ),
+  };
+}
+
+// ── Ctrl-C handler ────────────────────────────────────────────────────────
+process.on("SIGINT", async () => {
+  if (shutting) return;
+  shutting = true;
+  console.log("\n👋  Caught Ctrl-C, exiting…");
+  await killCurrent();
+  process.exit(0);
+});
+
+// ── initial run + watcher ─────────────────────────────────────────────────
+await run();
+
+for await (const evt of watch(".", { recursive: true })) {
+  if (shutting) break;
+  const rel = relative(process.cwd(), evt.filename || "");
+  if (isIgnoredByGit(rel)) continue;
+  await run();
+}
