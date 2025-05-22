@@ -24,11 +24,15 @@ brew "eza" # Maintained fork of exa
 brew "gh" # Github CLI tool
 brew "yazi" # tui file browser https://github.com/sxyazi/yazi
 brew "hurl"
+brew "icann-rdap"
+brew "presenterm"
+brew "mask" # Command runner based on markdown files
 
 # Editors
 brew "neovim"
 brew "vim"
-brew "helix"
+#brew "helix"
+brew "evil-helix" # helix fork with vim keybindings
 
 # Programming
 brew "fnm" # Node package no longer needed, use fnm instead
@@ -79,6 +83,7 @@ cask "blender"
 cask "obsidian"
 cask "notion"
 cask "shortcat" # like vimium for the whole OS
+cask "reaper"
 
 # Webdev casks
 cask "forklift"
@@ -92,3 +97,6 @@ cask "element" # matrix client
 # Games
 cask "minecraft"
 cask "steam"
+
+# Taskwarrior
+brew "task"
