@@ -91,5 +91,6 @@ plugins=(
 	direnv
 	fzf
 	exa
+  docker
 )
 source $ZSH/oh-my-zsh.sh
