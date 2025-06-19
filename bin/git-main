@@ -26,6 +26,6 @@ if [[ "$current_branch" == "$TARGET_BRANCH" ]]; then
   git pull
 else
   # If not on target branch, update it without checking out first
-  git fetch origin ${TARGET_BRANCH}:${TARGET_BRANCH}
+  git fetch -u origin ${TARGET_BRANCH}:${TARGET_BRANCH}
   git checkout ${TARGET_BRANCH}
 fi
