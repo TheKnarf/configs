@@ -70,7 +70,6 @@
     tmux
     bash
     home-manager
-    xrdp
     zsh
     pciutils
     gnumake
@@ -80,7 +79,6 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  services.xrdp.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
