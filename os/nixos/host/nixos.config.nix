@@ -70,6 +70,7 @@
     tmux
     bash
     home-manager
+    tightvnc
     zsh
     pciutils
     gnumake
