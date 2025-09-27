@@ -32,6 +32,9 @@
     # Other
     pkgs.webtorrent_desktop
     pkgs.obsidian
+    pkgs.clang
+    pkgs.pkg-config
+    pkgs.rustup
 
     # Games
     #pkgs.minecraft
