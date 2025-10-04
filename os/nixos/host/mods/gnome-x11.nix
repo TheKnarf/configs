@@ -22,6 +22,15 @@
 
   services.autosuspend.enable = false;
 
+  # Disable GNOME idle suspend via dconf (applied system-wide)
+  services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
+    [org.gnome.settings-daemon.plugins.power]
+    sleep-inactive-ac-type='nothing'
+    sleep-inactive-battery-type='nothing'
+    sleep-inactive-ac-timeout=0
+    sleep-inactive-battery-timeout=0
+  '';
+
   # ref https://github.com/NixOS/nixpkgs/issues/100390#issuecomment-867830400
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
