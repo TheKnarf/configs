@@ -17,12 +17,11 @@ then
 . `brew --prefix`/etc/profile.d/z.sh
 fi
 
-# fnm (Fast and simple Node version manager)
-if command -v fnm &> /dev/null
+# mise-en-plcae
+if command -v mise &> /dev/null
 then
-	eval "$(fnm env --use-on-cd --version-file-strategy recursive)"
+  eval "$(mise activate zsh)"
 fi
-
 
 # Use the `man` command to view Markdown files
 function mat {

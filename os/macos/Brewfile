@@ -35,8 +35,7 @@ brew "vim"
 brew "evil-helix" # helix fork with vim keybindings
 
 # Programming
-brew "fnm" # Node package no longer needed, use fnm instead
-           # yarn / pnpm not needed, use corepack instead
+brew "mise"
 brew "cmake"
 brew "rustup"
 brew "cargo-binstall"
