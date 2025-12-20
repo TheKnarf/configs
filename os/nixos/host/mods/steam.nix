@@ -4,7 +4,7 @@
   environment.systemPackages = with pkgs; [
     mangohud # overlay showing cpu / gpu load, etc
     gamescope
-    protonup
+    protonup-ng
     lutris
   ];
 

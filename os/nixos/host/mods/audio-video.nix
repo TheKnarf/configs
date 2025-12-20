@@ -8,14 +8,6 @@
 		NIXOS_OZONE_WL = "1";
 	};
 
-  # Enable OpenGL
-  /*
-  hardware.opengl = {
-    enable = true;
-#		driSupport = true;
-#		driSupport32Bit = true;
-  };
-  */
   hardware.graphics.enable = true;
 
   # Load nvidia driver for Xorg and Wayland
@@ -42,7 +34,7 @@
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
     # Only available from driver 515.43.04+
     # Currently alpha-quality/buggy, so false is currently the recommended setting.
-    open = false;
+    open = true;
 
     # Enable the Nvidia settings menu,
     # accessible via `nvidia-settings`.
@@ -54,7 +46,7 @@
 
 	# Sound
   #sound.enable = false;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
