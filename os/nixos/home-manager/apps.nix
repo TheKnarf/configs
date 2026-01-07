@@ -36,6 +36,10 @@
     pkgs.pkg-config
     pkgs.rustup
 
+    # AI / Terminal
+    pkgs.claude-code
+    pkgs.opencode
+
     # Games
     #pkgs.minecraft
     pkgs.atlauncher
