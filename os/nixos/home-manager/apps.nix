@@ -40,6 +40,9 @@
     pkgs.claude-code
     pkgs.opencode
 
+    # Development
+    pkgs.python3
+
     # Games
     #pkgs.minecraft
     pkgs.atlauncher
