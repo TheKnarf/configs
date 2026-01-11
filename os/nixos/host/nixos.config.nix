@@ -23,6 +23,26 @@
     loader.efi.canTouchEfiVariables = true;
   };
 
+  # Compressed RAM-based swap (prevents OOM lockups)
+  zramSwap = {
+    enable = true;
+    memoryPercent = 25;
+  };
+
+  # Kill runaway processes before system locks up
+  services.earlyoom = {
+    enable = true;
+    freeMemThreshold = 5;
+    freeSwapThreshold = 5;
+    enableNotifications = true;
+  };
+
+  # Full CPU speed (Intel pstate handles efficiency internally)
+  powerManagement.cpuFreqGovernor = "performance";
+
+  # Higher swappiness for zram (compressed swap is fast, use it more)
+  boot.kernel.sysctl."vm.swappiness" = 180;
+
   # Enable networking
   networking = {
     networkmanager.enable = true;
