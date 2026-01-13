@@ -39,6 +39,7 @@
     # AI / Terminal
     pkgs.claude-code
     pkgs.opencode
+    pkgs.codex
 
     # Development
     pkgs.python3
