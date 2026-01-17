@@ -7,6 +7,12 @@ bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
+bindkey '^k' kill-line
+bindkey '^u' backward-kill-line
+bindkey '^y' yank
+bindkey '^d' delete-char-or-list
 
 # Copy to system clipboard on yank (macOS)
 if [[ "$OSTYPE" == darwin* ]]; then
