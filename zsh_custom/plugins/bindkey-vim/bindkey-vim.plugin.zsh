@@ -24,6 +24,19 @@ if [[ "$OSTYPE" == darwin* ]]; then
     bindkey -M vicmd 'Y' vi-yank-eol-clipboard
 fi
 
+# Ctrl-J to continue command on new line (adds trailing \ if needed)
+function newline-continue {
+    if [[ "$BUFFER" != *'\' ]]; then
+        BUFFER="$BUFFER \\"
+    fi
+    BUFFER="$BUFFER
+"
+    CURSOR=${#BUFFER}
+}
+zle -N newline-continue
+bindkey -M viins '^J' newline-continue
+bindkey -M vicmd '^J' newline-continue
+
 # Ctrl-X Ctrl-E to edit command line in $EDITOR
 autoload -Uz edit-command-line
 zle -N edit-command-line
