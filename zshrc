@@ -94,7 +94,3 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 
-# Re-activate the canonical Ctrl-X Ctrl-E to edit-and-execute-command
-autoload -Uz edit-command-line      # load the widget
-zle     -N  edit-command-line       # tell ZLE it’s an editor widget
-bindkey '^X^E' edit-command-line    # Emacs/Readline style binding
