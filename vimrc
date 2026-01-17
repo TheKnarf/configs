@@ -33,6 +33,8 @@ let g:vimwiki_list = [
       \ { 'syntax': 'markdown', 'ext': 'md', 'path': '~/Projects/theknarf/theknarf.github.io'}
       \]
 
+let g:vimwiki_markdown_link_ext = 1
+
 let g:vimwiki_global_ext = 0
 
 "------------------------------------------------
@@ -89,7 +91,8 @@ set autoread
 
 "- indent
 set autoindent
-set noexpandtab
+set smartindent
+set expandtab
 set tabstop=2
 set shiftwidth=2
 

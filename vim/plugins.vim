@@ -9,6 +9,7 @@ Plug 'reasonml-editor/vim-reason'      "  ReasonML plugin
 Plug 'theknarf/maude.vim'              "  Maude syntax highlighting
 Plug 'noahfrederick/vim-skeleton'
 Plug 'severin-lemaignan/vim-minimap'   "  A code minimap for Vim
+Plug 'neoclide/jsonc.vim'
 
 "  Fern
 Plug 'lambdalisue/fern.vim'            "  Fern a general purpose async tree viewer
@@ -33,4 +34,4 @@ Plug 'ziglang/zig.vim'
 " Plug 'tpope/vim-dadbod'
 " Plug 'kristijanhusak/vim-dadbod-completion'
 
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
