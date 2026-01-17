@@ -8,6 +8,22 @@ bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 
+# Copy to system clipboard on yank (macOS)
+if [[ "$OSTYPE" == darwin* ]]; then
+    function vi-yank-clipboard {
+        zle vi-yank
+        echo -n "$CUTBUFFER" | pbcopy
+    }
+    function vi-yank-eol-clipboard {
+        zle vi-yank-eol
+        echo -n "$CUTBUFFER" | pbcopy
+    }
+    zle -N vi-yank-clipboard
+    zle -N vi-yank-eol-clipboard
+    bindkey -M vicmd 'y' vi-yank-clipboard
+    bindkey -M vicmd 'Y' vi-yank-eol-clipboard
+fi
+
 # Ctrl-X Ctrl-E to edit command line in $EDITOR
 autoload -Uz edit-command-line
 zle -N edit-command-line
