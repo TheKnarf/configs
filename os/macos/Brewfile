@@ -41,19 +41,25 @@ brew "rustup"
 brew "cargo-binstall"
 brew "rust-analyzer"
 brew "go"
+tap "oven-sh/bun"
 brew "oven-sh/bun/bun"
 
 cask "orbstack" # Docker Desktop alternative
+
+# AI
+cask "claude-code"
+brew "opencode"
 
 # Cloud dev
 brew "azure-cli"
 brew "awscli"
 brew "tfenv" # terraform
-cask "google-cloud-sdk"
+cask "gcloud-cli"
 
 # Windows manager (and shortcut manager)
-brew "koekeishiya/formulae/yabai"
-brew "koekeishiya/formulae/skhd"
+tap "asmvik/formulae"
+brew "asmvik/formulae/yabai"
+brew "asmvik/formulae/skhd"
 
 # Password manager
 cask "1password"
@@ -67,7 +73,7 @@ brew "ollama"
 
 # Browsers
 cask "google-chrome"
-#cask "arc" # comment out for now since it was installed manually
+cask "arc"
 
 # General casks
 cask "dropbox"
