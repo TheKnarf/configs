@@ -34,17 +34,17 @@ function setup_link () {
 		exit 1
 	fi
 
-	if [ -L ${DEST_FILE} ] ; then
-		if [ -e ${DEST_FILE} ] ; then
+	if [ -L "${DEST_FILE}" ] ; then
+		if [ -e "${DEST_FILE}" ] ; then
 			printf "  ${BOLDGREEN}✓ Good link (${DEST_FILE})${ENDCOLOR}\n"
 		else
 			printf "  ${ITALICRED}✗ Broken link (${DEST_FILE})${ENDCOLOR}\n"
 		fi
-	elif [ -e ${DEST_FILE} ] ; then
+	elif [ -e "${DEST_FILE}" ] ; then
 		printf "  ${ITALICRED}✗ Not a link (${DEST_FILE})${ENDCOLOR}\n"
 	else
 		mkdir -p "$(dirname "$DEST_FILE")"
-		ln -s $SOURCE_FILE $DEST_FILE
+		ln -s "$SOURCE_FILE" "$DEST_FILE"
 		printf "  ${BOLDBLUE}✓ Linked (${DEST_FILE})${ENDCOLOR}\n"
 	fi
 
@@ -65,6 +65,9 @@ setup_link "$HOME/.bin" "bin"
 setup_link "$HOME/.config/nvim" "nvim"
 setup_link "$HOME/.config/helix" "helix"
 setup_link "$HOME/.taskrc" "taskrc"
+if [[ "$(uname)" == "Darwin" ]]; then
+	setup_link "$HOME/Library/Application Support/Arc/User Data/External Extensions" "os/macos/arc-extensions"
+fi
 
 # -----------------------------------------
 #              Vim setup
