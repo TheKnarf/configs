@@ -67,6 +67,7 @@ setup_link "$HOME/.config/helix" "helix"
 setup_link "$HOME/.taskrc" "taskrc"
 if [[ "$(uname)" == "Darwin" ]]; then
 	setup_link "$HOME/Library/Application Support/Arc/User Data/External Extensions" "os/macos/arc-extensions"
+	setup_link "$HOME/Library/Application Support/Arc/StorableKeyBindings.json" "os/macos/StorableKeyBindings.json"
 fi
 
 # -----------------------------------------

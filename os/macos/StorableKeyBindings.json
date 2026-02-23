@@ -1,0 +1,117 @@
+{
+  "version" : 1,
+  "userOverrides" : [
+    {
+      "state" : {
+        "valid" : {
+          "_0" : {
+            "deviceIndependentModifierFlags" : 262144,
+            "keyEquivalent" : "j"
+          }
+        }
+      },
+      "priority" : "low",
+      "default" : {
+        "typeTravelTriggers" : [
+          "Next Tab",
+          "Next Item",
+          "Tab Below",
+          "Item Below"
+        ],
+        "priority" : "low",
+        "shortcut" : {
+          "deviceIndependentModifierFlags" : 1048576,
+          "keyEquivalent" : "}"
+        }
+      },
+      "action" : {
+        "identifier" : "nextTab",
+        "name" : "Next Tab"
+      },
+      "source" : "userDefined"
+    },
+    {
+      "state" : {
+        "valid" : {
+          "_0" : {
+            "deviceIndependentModifierFlags" : 262144,
+            "keyEquivalent" : "l"
+          }
+        }
+      },
+      "priority" : "low",
+      "default" : {
+        "shortcut" : {
+          "keyEquivalent" : "→",
+          "deviceIndependentModifierFlags" : 1572864
+        },
+        "priority" : "low",
+        "typeTravelTriggers" : [
+          "Next Space",
+          "Focus Next Space"
+        ]
+      },
+      "action" : {
+        "name" : "Next Space",
+        "identifier" : "focusNextSpace"
+      },
+      "source" : "userDefined"
+    },
+    {
+      "state" : {
+        "valid" : {
+          "_0" : {
+            "keyEquivalent" : "k",
+            "deviceIndependentModifierFlags" : 262144
+          }
+        }
+      },
+      "priority" : "low",
+      "default" : {
+        "priority" : "low",
+        "typeTravelTriggers" : [
+          "Previous Tab",
+          "Previous Item",
+          "Item Above",
+          "Tab Above"
+        ],
+        "shortcut" : {
+          "deviceIndependentModifierFlags" : 1048576,
+          "keyEquivalent" : "{"
+        }
+      },
+      "action" : {
+        "name" : "Previous Tab",
+        "identifier" : "previousTab"
+      },
+      "source" : "userDefined"
+    },
+    {
+      "state" : {
+        "valid" : {
+          "_0" : {
+            "deviceIndependentModifierFlags" : 262144,
+            "keyEquivalent" : "h"
+          }
+        }
+      },
+      "priority" : "low",
+      "default" : {
+        "priority" : "low",
+        "typeTravelTriggers" : [
+          "Previous Space",
+          "Focus Previous Space"
+        ],
+        "shortcut" : {
+          "deviceIndependentModifierFlags" : 1572864,
+          "keyEquivalent" : "←"
+        }
+      },
+      "action" : {
+        "name" : "Previous Space",
+        "identifier" : "focusPreviousSpace"
+      },
+      "source" : "userDefined"
+    }
+  ]
+}
