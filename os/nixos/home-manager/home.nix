@@ -6,6 +6,7 @@
 #		./wayland.nix
     ./eww.nix
     ./apps.nix
+    ./weston-tv.nix
 	];
 
   # Home Manager needs a bit of information about you and the paths it should
