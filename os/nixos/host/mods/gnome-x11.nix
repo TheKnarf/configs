@@ -1,8 +1,11 @@
 { config, pkgs, ... }:
 
 let
-  # Weston session (kept as fallback if gamescope breaks the TV display)
-  westonSession = pkgs.writeShellScript "weston-session" ''
+  # Persistent file recording which session to launch next.
+  # Steam's "Switch to Desktop" calls steamos-session-select to update it.
+  sessionStateFile = "$HOME/.local/state/session-select";
+
+  westonExec = pkgs.writeShellScript "weston-exec" ''
     export XDG_RUNTIME_DIR="/run/user/$(id -u)"
     export XDG_SESSION_TYPE=wayland
     export GBM_BACKEND=nvidia-drm
@@ -15,9 +18,7 @@ let
     exec ${pkgs.weston}/bin/weston --backend=drm --log=/tmp/weston-$(id -un).log
   '';
 
-  # Steam Deck-style gamescope session: gamescope as primary compositor
-  # running Steam Big Picture, games get native fullscreen.
-  gamescopeSteamSession = pkgs.writeShellScript "gamescope-steam-session" ''
+  gamescopeExec = pkgs.writeShellScript "gamescope-exec" ''
     export XDG_RUNTIME_DIR="/run/user/$(id -u)"
     export XDG_SESSION_TYPE=wayland
     export GBM_BACKEND=nvidia-drm
@@ -29,12 +30,21 @@ let
     exec /run/current-system/sw/bin/steam-gamescope >/tmp/gamescope-$(id -un).log 2>&1
   '';
 
-  loginSession = gamescopeSteamSession;
+  # Dispatcher: reads the session state file and runs the chosen session.
+  # Defaults to gamescope (Steam Big Picture). The state file is written
+  # by the `steamos-session-select` binary (defined in steam.nix).
+  loginSession = pkgs.writeShellScript "login-session" ''
+    mkdir -p "$(dirname ${sessionStateFile})"
+    case "$(cat ${sessionStateFile} 2>/dev/null)" in
+      desktop|plasma|weston) exec ${westonExec} ;;
+      *) exec ${gamescopeExec} ;;
+    esac
+  '';
 in
 {
   environment.systemPackages = with pkgs; [
     kitty         # Terminal emulator
-    weston        # Working Wayland compositor for this TV
+    weston        # Wayland compositor (kept as fallback / desktop session)
     foot          # Terminal for weston
   ];
 
@@ -42,19 +52,17 @@ in
     gnome.enable = true;
   };
 
-  # Use greetd with tuigreet (TUI-based, works on console).
-  # initial_session auto-logs in `knarf` on boot; default_session is the
-  # fallback greeter shown only after logging out.
+  # greetd in single-user TV mode: always autologin as knarf, no greeter.
+  # The session command is a dispatcher that picks gamescope (default) or
+  # weston based on $HOME/.local/state/session-select. To switch sessions
+  # use `steamos-session-select [gamescope|desktop]`, which ends the
+  # session and lets greetd relaunch the dispatcher with the new choice.
   services.greetd = {
     enable = true;
     settings = {
-      initial_session = {
+      default_session = {
         command = "${loginSession}";
         user = "knarf";
-      };
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd ${loginSession}";
-        user = "greeter";
       };
     };
   };
