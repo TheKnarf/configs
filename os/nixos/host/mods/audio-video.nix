@@ -6,6 +6,10 @@
 	environment.sessionVariables = {
 		# Hint electron apps to use wayland
 		NIXOS_OZONE_WL = "1";
+		# NVIDIA Wayland compatibility
+		GBM_BACKEND = "nvidia-drm";
+		__GLX_VENDOR_LIBRARY_NAME = "nvidia";
+		WLR_NO_HARDWARE_CURSORS = "1";
 	};
 
   hardware.graphics.enable = true;
@@ -34,7 +38,7 @@
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
     # Only available from driver 515.43.04+
     # Currently alpha-quality/buggy, so false is currently the recommended setting.
-    open = true;
+    open = false;
 
     # Enable the Nvidia settings menu,
     # accessible via `nvidia-settings`.
