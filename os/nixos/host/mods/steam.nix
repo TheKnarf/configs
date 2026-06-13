@@ -92,6 +92,18 @@ let
   steam-with-fixes = pkgs.steam.override {
     extraEnv = {
       LD_PRELOAD = "${steam-wait4-fix}/lib/libsteamwait4fix.so";
+      # Steam FHS's /etc/profile resets GTK_IM_MODULE to "xim", which
+      # silently drops characters from Big Picture's on-screen keyboard.
+      # Force ibus so Chromium routes keys through the running ibus-daemon.
+      GTK_IM_MODULE = "ibus";
+      QT_IM_MODULE = "ibus";
+      XMODIFIERS = "@im=ibus";
+      # Force Chromium (steamwebhelper, where Big Picture's UI lives) to use
+      # the X11 Ozone backend. Otherwise NIXOS_OZONE_WL=1 (set system-wide)
+      # makes Chromium a native Wayland client — Steam's main binary calls
+      # XTestFakeKeyEvent into XWayland, but the focused field would be a
+      # Wayland surface, so synthetic keys never reach it.
+      NIXOS_OZONE_WL = "0";
     };
     extraArgs = "-cef-force-gpu -cef-ignore-gpu-blocklist";
   };
@@ -104,6 +116,7 @@ in
     lutris
     steamos-session-select
     steamosManagerStub
+    xorg.setxkbmap  # ibus engines need this to activate XKB layouts
   ];
 
   # Register the DBus .service file on the host session bus, so the name
@@ -126,6 +139,14 @@ in
   programs.gamescope.enable = true;
 
   hardware.steam-hardware.enable = true;
+
+  # Steam Big Picture's on-screen keyboard sends characters via ibus
+  # (Chromium uses the system IM module). GNOME sets GTK/QT_IM_MODULE=ibus
+  # by default, but without ibus-daemon running the characters are dropped.
+  i18n.inputMethod = {
+    enable = true;
+    type = "ibus";
+  };
 
   # xdg-desktop-portal is required by Steam in gamescope-session. The
   # gamescope-specific backend (from Jovian) provides the key-input portal
