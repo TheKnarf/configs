@@ -5,27 +5,44 @@ let
   # fails with ECHILD because steamsysinfo exits before Steam checks it.
   # This library intercepts wait4() to cache exit statuses and return them
   # when the original call fails with ECHILD.
-  steam-wait4-fix = pkgs.pkgsi686Linux.stdenv.mkDerivation {
-    name = "steam-wait4-fix";
+  #
+  # Built for both 32-bit and 64-bit so ld.so's $LIB substitution picks
+  # the matching one for each Steam subprocess; otherwise 64-bit children
+  # log "wrong ELF class" warnings for the 32-bit lib.
+  mkWait4Fix = { stdenv, libDir }: stdenv.mkDerivation {
+    name = "steam-wait4-fix-${libDir}";
     src = ./steam-wait4fix/wait4fix.c;
     nativeBuildInputs = [ pkgs.patchelf ];
     unpackPhase = "cp $src wait4fix.c";
     buildPhase = ''
       gcc -shared -fPIC -o libsteamwait4fix.so wait4fix.c -ldl -lpthread
     '';
-    # Strip RPATH/RUNPATH so library uses FHS container's /lib32 glibc
+    # Strip RPATH/RUNPATH so library uses FHS container's glibc
     installPhase = ''
-      mkdir -p $out/lib
+      mkdir -p $out/${libDir}
       patchelf --remove-rpath libsteamwait4fix.so
-      cp libsteamwait4fix.so $out/lib/
+      cp libsteamwait4fix.so $out/${libDir}/
     '';
     dontPatchELF = true;
   };
 
-  # Wrapped Steam package with GPU acceleration and wait4 fix
+  steam-wait4-fix = pkgs.symlinkJoin {
+    name = "steam-wait4-fix";
+    # ld.so's $LIB expands to "lib" for 32-bit x86 and "lib64" for x86_64.
+    paths = [
+      (mkWait4Fix { stdenv = pkgs.pkgsi686Linux.stdenv; libDir = "lib";   })
+      (mkWait4Fix { stdenv = pkgs.stdenv;               libDir = "lib64"; })
+    ];
+  };
+
+  # Wrapped Steam package with GPU acceleration and wait4 fix.
+  # Pass both libs colon-separated so pressure-vessel (Steam Runtime
+  # container) can detect each one's arch and route to ${PLATFORM}
+  # automatically. Using $LIB doesn't survive pressure-vessel's
+  # LD_PRELOAD rewrite.
   steam-with-fixes = pkgs.steam.override {
     extraEnv = {
-      LD_PRELOAD = "${steam-wait4-fix}/lib/libsteamwait4fix.so";
+      LD_PRELOAD = "${steam-wait4-fix}/lib/libsteamwait4fix.so:${steam-wait4-fix}/lib64/libsteamwait4fix.so";
     };
     extraArgs = "-cef-force-gpu -cef-ignore-gpu-blocklist";
   };
