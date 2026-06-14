@@ -28,17 +28,9 @@
     };
 
     ags.url = "github:Aylur/ags";
-
-    # Jovian-NixOS — used only for the xdg-desktop-portal-gamescope package
-    # (and related bits) so Steam Big Picture's on-screen keyboard can
-    # inject keystrokes via libei. We do NOT enable the full Jovian stack.
-    jovian = {
-      url = "github:Jovian-Experiments/Jovian-NixOS";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { nixpkgs, home-manager, hyprland, jovian, ... } @ inputs:
+  outputs = { nixpkgs, home-manager, hyprland, ... } @ inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -47,10 +39,6 @@
           allowUnfree = true;
         };
       };
-      # Cherry-pick xdg-desktop-portal-gamescope from Jovian without
-      # applying their full overlay (which would override gamescope etc).
-      xdg-desktop-portal-gamescope = pkgs.callPackage
-        "${jovian}/pkgs/xdg-desktop-portal-gamescope" { };
       user = "knarf";
     in {
       # Machines
@@ -68,7 +56,7 @@
           }
         ];
 
-        specialArgs = {inherit user xdg-desktop-portal-gamescope;};
+        specialArgs = {inherit user;};
       };
 
       nixosConfigurations."chuwi" = nixpkgs.lib.nixosSystem {

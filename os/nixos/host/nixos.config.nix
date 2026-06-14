@@ -21,11 +21,6 @@
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-
-    # Force HDMI output mode for TV compatibility (framebuffer console needs this)
-    kernelParams = [
-      "video=HDMI-A-2:1920x1080@60"
-    ];
   };
 
   # Compressed RAM-based swap (prevents OOM lockups)
