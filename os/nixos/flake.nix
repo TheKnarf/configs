@@ -12,25 +12,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    hyprland-hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      inputs.hyprland.follows = "hyprland";
-    };
-
     ags.url = "github:Aylur/ags";
   };
 
-  outputs = { nixpkgs, home-manager, hyprland, ... } @ inputs:
+  outputs = { nixpkgs, home-manager, ... } @ inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -81,7 +66,6 @@
         inherit pkgs;
 
         modules = [
-          hyprland.homeManagerModules.default
           ./home-manager/home.nix
         ];
 

@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  #services.seatd.enable = true; # seatd is needed to run hyprland
-
 	environment.sessionVariables = {
 		# Hint electron apps to use wayland
 		NIXOS_OZONE_WL = "1";
