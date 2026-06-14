@@ -27,15 +27,7 @@ let
       mkdir -p "$XDG_RUNTIME_DIR"
       chmod 700 "$XDG_RUNTIME_DIR"
     fi
-    # Run gamescope with a child that starts ibus-daemon (X11 bridge) first,
-    # then execs Steam. ibus must register on gamescope's XWayland before
-    # Steam connects, otherwise Big Picture's on-screen keyboard registers
-    # clicks but never delivers characters to focused fields.
-    exec ${pkgs.gamescope}/bin/gamescope --steam -- \
-      /run/current-system/sw/bin/bash -c '
-        /run/current-system/sw/bin/ibus-daemon -drxR --panel=disable &
-        exec /run/current-system/sw/bin/steam -tenfoot -pipewire-dmabuf
-      ' >/tmp/gamescope-$(id -un).log 2>&1
+    exec /run/current-system/sw/bin/steam-gamescope >/tmp/gamescope-$(id -un).log 2>&1
   '';
 
   # Dispatcher: reads the session state file and runs the chosen session.
