@@ -6,24 +6,20 @@
     xorg.xinit
   ];
 
-  services.xserver = {
+  services.xserver.enable = true;
+
+  services.displayManager.gdm = {
     enable = true;
-
-    displayManager = {
-      gdm.enable = true;
-      gdm.autoSuspend = false;
-      gdm.wayland = false;
-    };
-
-    desktopManager = {
-      gnome.enable = true;
-    };
+    autoSuspend = false;
+    wayland = true;
   };
+
+  services.desktopManager.gnome.enable = true;
 
   services.autosuspend.enable = false;
 
   # Disable GNOME idle suspend via dconf (applied system-wide)
-  services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
+  services.desktopManager.gnome.extraGSettingsOverrides = ''
     [org.gnome.settings-daemon.plugins.power]
     sleep-inactive-ac-type='nothing'
     sleep-inactive-battery-type='nothing'
