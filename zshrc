@@ -12,9 +12,11 @@ else
     echo "Unsupported operating system: $os"
 fi
 
-if command -v brew &> /dev/null
-then
-. `brew --prefix`/etc/profile.d/z.sh
+# Source z directly from a known path — `brew --prefix` forks a subshell (~120ms)
+if [ -f /opt/homebrew/etc/profile.d/z.sh ]; then
+	. /opt/homebrew/etc/profile.d/z.sh
+elif [ -f /home/linuxbrew/.linuxbrew/etc/profile.d/z.sh ]; then
+	. /home/linuxbrew/.linuxbrew/etc/profile.d/z.sh
 fi
 
 # mise-en-plcae
@@ -53,7 +55,7 @@ path+=(
 	'/snap/bin'
 	"$HOME/.bin"
 	'./vendor/bin'          # PHP Composer bin folder
-	'~/.cargo/bin'          # Rust bin path
+	"$HOME/.cargo/bin"      # Rust bin path
 	"$GOPATH/bin"
 	"$HOME/.yarn/bin"
 	"$HOME/.config/yarn/global/node_modules/.bin"
@@ -78,16 +80,27 @@ export DO_NOT_TRACK=1
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/configs/zsh_custom
 ZSH_THEME="robbyrussell_theknarf_mod"
+
+# Skip untracked files in the prompt's git dirty check — `git status` including
+# untracked files is the classic prompt freezer in large repos / under load
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Tell the fzf plugin where fzf lives so it doesn't probe a dozen paths (~90ms)
+FZF_BASE=/opt/homebrew/opt/fzf
+
+# Removed plugins:
+#  - ssh-agent: macOS launchd already runs an agent; AddKeysToAgent/UseKeychain
+#    in ~/.ssh/config replaces it (the plugin cost ~240ms per new shell)
+#  - direnv: no .envrc files in use, but the hook forked `direnv export`
+#    before every single prompt
 plugins=(
 	git-flow
 	zsh-autosuggestions
-	ssh-agent
 	man-color
 	bindkey-vim
 	kubectl
 	wasmer
 	bun
-	direnv
 	fzf
 	exa
   docker
