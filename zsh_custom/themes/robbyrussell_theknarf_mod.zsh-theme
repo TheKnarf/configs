@@ -1,3 +1,10 @@
+# Run the prompt's git commands with Apple's git: Homebrew binaries can block
+# 10-20s on Gatekeeper (syspolicyd) assessment when the system is busy, and
+# this runs before every prompt. Apple-signed /usr/bin/git is exempt.
+if [ -x /usr/bin/git ]; then
+	__git_prompt_git() { GIT_OPTIONAL_LOCKS=0 /usr/bin/git "$@" }
+fi
+
 if [ -n "$SSH_TTY" ]; then
 	SHOWHOSTNAME="$(uname -n) "
 else
