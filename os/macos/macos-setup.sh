@@ -58,6 +58,9 @@ echo 'Hot corners'
 defaults write com.apple.dock wvous-bl-corner -int 10
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
+# Activate sshd
+sudo systemsetup -setremotelogin on
+
 echo "Remove default pinned apps from Dock"
 # https://stackoverflow.com/questions/56121092/applescript-to-remove-items-from-dock
 defaults delete com.apple.dock persistent-apps; killall Dock
