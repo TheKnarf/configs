@@ -41,8 +41,6 @@ brew "rustup"
 brew "cargo-binstall"
 brew "rust-analyzer"
 brew "go"
-tap "oven-sh/bun"
-brew "oven-sh/bun/bun"
 
 cask "orbstack" # Docker Desktop alternative
 
@@ -57,7 +55,7 @@ brew "tfenv" # terraform
 cask "gcloud-cli"
 
 # Windows manager (and shortcut manager)
-tap "asmvik/formulae"
+tap "asmvik/formulae", trusted: true
 brew "asmvik/formulae/yabai"
 brew "asmvik/formulae/skhd"
 
@@ -81,7 +79,6 @@ cask "raycast"
 cask "spotify"
 cask "discord"
 cask "vlc"
-cask "disk-inventory-x"
 cask "webtorrent"
 cask "the-unarchiver"
 cask "blender"
