@@ -27,6 +27,7 @@ brew "hurl"
 brew "icann-rdap"
 brew "presenterm"
 brew "mask" # Command runner based on markdown files
+brew "graphviz"
 
 # Editors
 brew "neovim"
