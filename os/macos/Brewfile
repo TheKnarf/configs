@@ -38,7 +38,6 @@ brew "evil-helix" # helix fork with vim keybindings
 # Programming
 brew "mise"
 brew "cmake"
-brew "rustup"
 brew "cargo-binstall"
 brew "rust-analyzer"
 brew "go"
