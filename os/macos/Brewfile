@@ -47,6 +47,7 @@ cask "orbstack" # Docker Desktop alternative
 # AI
 cask "claude-code"
 brew "opencode"
+cask "codex"
 
 # Cloud dev
 brew "azure-cli"
