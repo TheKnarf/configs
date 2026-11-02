@@ -23,6 +23,9 @@ if [ -z "$NEW_KEYS" ]; then
   exit 1
 fi
 
+mkdir -p "$HOME/.ssh/"
+touch $AUTHORIZED_KEYS_FILE
+
 # Check if authorized_keys exists and is non-empty
 if [ -f "$AUTHORIZED_KEYS_FILE" ] && [ -s "$AUTHORIZED_KEYS_FILE" ]; then
   # Compare fetched keys with the current authorized_keys

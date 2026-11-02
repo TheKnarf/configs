@@ -17,7 +17,6 @@ brew "htop"
 brew "jq"
 brew "cloc"
 brew "coreutils"
-brew "direnv"
 brew "git-annex"
 brew "bat"
 brew "eza" # Maintained fork of exa
@@ -25,14 +24,11 @@ brew "gh" # Github CLI tool
 brew "yazi" # tui file browser https://github.com/sxyazi/yazi
 brew "hurl"
 brew "icann-rdap"
-brew "presenterm"
-brew "mask" # Command runner based on markdown files
 brew "graphviz"
 
 # Editors
-brew "neovim"
 brew "vim"
-#brew "helix"
+brew "neovim"
 brew "evil-helix" # helix fork with vim keybindings
 
 # Programming
@@ -50,10 +46,9 @@ brew "opencode"
 cask "codex"
 
 # Cloud dev
-brew "azure-cli"
+cask "azure-cli"
 brew "awscli"
-brew "tfenv" # terraform
-cask "gcloud-cli"
+cask "gcloud-cli", postinstall: "${HOMEBREW_PREFIX}/bin/gcloud components update"
 
 # Windows manager (and shortcut manager)
 tap "asmvik/formulae", trusted: true
@@ -73,12 +68,12 @@ brew "ollama"
 # Browsers
 cask "google-chrome"
 cask "arc"
+cask "zen"
 
 # General casks
 cask "dropbox"
 cask "raycast"
 cask "spotify"
-cask "discord"
 cask "vlc"
 cask "webtorrent"
 cask "the-unarchiver"
@@ -93,9 +88,10 @@ cask "forklift"
 cask "postman"
 cask "visual-studio-code"
 
-# Work
+# Chat apps
 cask "slack"
 cask "element" # matrix client
+cask "discord"
 
 # Games
 cask "minecraft"

@@ -1,5 +1,22 @@
 #!/usr/bin/env bash
 
+# --- CHECK FOR FULL DISK ACCESS ---
+# Attempting to read a highly protected file that requires FDA to access.
+# If Terminal doesn't have FDA, this 'plutil' test will fail.
+if ! plutil -lint /Library/Preferences/com.apple.TimeMachine.plist >/dev/null 2>&1; then
+    echo "[-] Error: Terminal lacks Full Disk Access privileges."
+    echo "[*] Opening System Settings to Full Disk Access..."
+
+    # 1. Pop up a native macOS dialog explaining what to do
+    osascript -e 'display dialog "This script requires Full Disk Access.\n\nPlease toggle ON the switch for Terminal in the System Settings window that just opened, then restart this script." with title "Permission Required" buttons {"OK"} default button "OK" giving up after 15' >/dev/null 2>&1 &
+
+    # 2. Open System Settings directly to the Full Disk Access pane
+    open "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"
+
+    # 3. Abort the script safely
+    exit 1
+fi
+
 # If running MacOS under arm64 (aka M1)
 if [[ `arch` == 'arm64' ]]; then
 	if [[ "`pkgutil --files com.apple.pkg.RosettaUpdateAuto`" == "" ]]; then
@@ -68,7 +85,25 @@ defaults delete com.apple.dock persistent-apps; killall Dock
 # Check if Homebrew is installed
 command -v brew >/dev/null 2>&1 || { \
 	echo >&2 "Installing Homebrew Now"; \
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; \
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; \
+}
+
+if [[ -f /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -f /usr/local/bin/brew ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+# 3. Verify it worked before trying to use it
+if ! command -v brew &> /dev/null; then
+    echo "[-] Error: Homebrew installation failed or PATH could not be set."
+    exit 1
+fi
+
+# Install Rust
+command -v cargo >/dev/null 2>&1 || { \
+  echo >&2 "Installing rustup"; \
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -- -y; \
 }
 
 brew bundle
