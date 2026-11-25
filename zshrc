@@ -4,6 +4,8 @@ os=$(uname -s)
 # Check if the operating system is macOS
 if [ "$os" = "Darwin" ]; then
     export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
+    # Homebrew completions (brew shellenv does this, but costs a fork per shell)
+    fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
 elif [ "$os" = "Linux" ]; then
 	if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
