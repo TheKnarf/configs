@@ -20,8 +20,6 @@ Plug 'lambdalisue/fern-mapping-project-top.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'ziglang/zig.vim'
-
 " Language server support
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
