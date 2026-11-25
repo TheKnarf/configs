@@ -73,6 +73,9 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/configs/zsh_custom
 ZSH_THEME="robbyrussell_theknarf_mod"
 
+# oh-my-zsh is pinned as a submodule; update it there instead of self-updating
+zstyle ':omz:update' mode disabled
+
 # Skip untracked files in the prompt's git dirty check — `git status` including
 # untracked files is the classic prompt freezer in large repos / under load
 DISABLE_UNTRACKED_FILES_DIRTY="true"
