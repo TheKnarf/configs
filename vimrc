@@ -5,6 +5,9 @@
 " Vim only sets this automatically for the default vimrc, not with `vim -u`
 set nocompatible
 
+"- Leader key; set before any <leader> mapping, which captures it when defined
+let mapleader = ","
+
 call plug#begin()
 
 if filereadable(expand("~/.vim/plugins.vim"))
@@ -162,10 +165,6 @@ hi LineNr ctermfg=lightgray ctermbg=darkgray
 let g:airline_powerline_fonts = 1
 
 set laststatus=2
-
-"- With a map leader it's possible to do extra key combinations
-"  like <leader>w saves the current file
-let mapleader = ","
 
 "- Fast saving
 nnoremap <leader>w :w!<cr>
