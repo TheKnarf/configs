@@ -13,6 +13,9 @@ endif
 
 call plug#end()
 
+" Built-in EditorConfig support (Vim 9.1+); silent! for older Vims
+silent! packadd! editorconfig
+
 filetype plugin indent on    "  required
 
 "   Settings for some bundles
