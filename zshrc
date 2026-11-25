@@ -55,7 +55,6 @@ path+=(
 	'/snap/bin'
 	"$HOME/.bin"
 	"$HOME/.cargo/bin"      # Rust bin path
-	"$GOPATH/bin"
 )
 export PATH
 
