@@ -93,10 +93,14 @@ _gen_comp_new=()
 for _cmd in kubectl docker; do
 	(( $+commands[$_cmd] )) || continue
 	_file=$_gen_comp_dir/_$_cmd
+	# Glob qualifier in array form: (#q...) would need extendedglob
+	_stale=($_file(N.mh+168))
 	if [[ ! -s $_file ]]; then
 		$_cmd completion zsh >| $_file 2>/dev/null && _gen_comp_new+=($_cmd)
-	elif [[ -n $_file(#qN.mh+168) ]]; then
-		($_cmd completion zsh >| $_file.tmp 2>/dev/null && mv $_file.tmp $_file) &!
+	elif (( $#_stale )); then
+		# Hidden temp name so compinit doesn't count it as a completion file
+		($_cmd completion zsh >| $_gen_comp_dir/.$_cmd.tmp 2>/dev/null \
+			&& mv $_gen_comp_dir/.$_cmd.tmp $_file) &!
 	fi
 done
 
@@ -115,7 +119,7 @@ source $ZSH/oh-my-zsh.sh
 for _cmd in $_gen_comp_new; do
 	autoload -Uz _$_cmd && compdef _$_cmd $_cmd
 done
-unset _gen_comp_dir _gen_comp_new _cmd _file
+unset _gen_comp_dir _gen_comp_new _cmd _file _stale
 
 # Source local config (secrets, machine-specific settings)
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
