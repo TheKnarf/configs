@@ -79,7 +79,6 @@ cask "blender"
 cask "obsidian"
 cask "notion"
 cask "shortcat" # like vimium for the whole OS
-cask "reaper"
 
 # Webdev casks
 cask "forklift"
