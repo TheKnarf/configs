@@ -109,7 +109,6 @@ plugins=(
 	zsh-autosuggestions
 	man-color
 	bindkey-vim
-	bun
 	fzf
 )
 source $ZSH/oh-my-zsh.sh
