@@ -11,6 +11,11 @@
       "name": "target-watch",
       "source": "./target-watch",
       "description": "Warns the agent working in a folder when its target/ dir grows past a limit that tightens as free disk space shrinks"
+    },
+    {
+      "name": "account-usage",
+      "source": "./account-usage",
+      "description": "Shows which account the session is signed in with and how much of its weekly usage is left in the status line"
     }
   ]
 }

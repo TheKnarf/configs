@@ -1,0 +1,5 @@
+{
+  "name": "account-usage",
+  "version": "0.1.0",
+  "description": "Shows which account the session is signed in with and how much of its weekly usage is left in the status line"
+}

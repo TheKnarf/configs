@@ -96,7 +96,7 @@ if command -v claude &> /dev/null; then
 			&& printf "  ${BOLDBLUE}✓ Registered marketplace (configs-mods)${ENDCOLOR}\n" \
 			|| printf "  ${ITALICRED}✗ Failed to register marketplace (configs-mods)${ENDCOLOR}\n"
 	fi
-	for mod in target-watch; do
+	for mod in target-watch account-usage; do
 		if claude plugin list 2>/dev/null | grep -q "$mod@configs-mods"; then
 			printf "  ${BOLDGREEN}✓ Mod installed ($mod)${ENDCOLOR}\n"
 		else
