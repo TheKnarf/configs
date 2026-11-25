@@ -45,18 +45,12 @@ export IRCNAME=""
 export IRCNICK="knarf"
 export IRCUSER="knarf"
 
-# Setup path
+# Setup path (system dirs come from /etc/paths on macOS and the distro on Linux)
+typeset -U path
 path+=(
-	'/usr/bin'
-	'/bin'
-	'/usr/sbin'
-	'/sbin'
-	'/usr/local/bin'
-	'/usr/local/sbin'
-	'/usr/local/git/bin'
-	'/snap/bin'
 	"$HOME/.bin"
 	"$HOME/.cargo/bin"      # Rust bin path
+	'/snap/bin'             # Ubuntu snaps; zsh doesn't read /etc/profile.d
 )
 export PATH
 
