@@ -29,7 +29,6 @@
 
 		# Editors
 		pkgs.vim
-		pkgs.neovim
 		pkgs.helix
 
 		# Programming

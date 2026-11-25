@@ -28,7 +28,6 @@ brew "graphviz"
 
 # Editors
 brew "vim"
-brew "neovim"
 brew "evil-helix" # helix fork with vim keybindings
 
 # Programming
