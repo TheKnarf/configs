@@ -182,20 +182,7 @@ hi LineNr ctermfg=lightgray ctermbg=darkgray
 "- Statusline
 let g:airline_powerline_fonts = 1
 
-"- Set statusline=%t%r\ (%{FileSize()})\ Format:\ %{&ff}%=%c,%l/%L
 set laststatus=2
-
-function! FileSize()
-  let bytes = getfsize(expand("%:p"))
-  if bytes <= 0
-		return "- "
-  endif
-  if bytes < 1024
-		return bytes
-  else
-		return (bytes / 1024) . "K"
-  endif
-endfunction
 
 "- With a map leader it's possible to do extra key combinations
 "  like <leader>w saves the current file
