@@ -82,3 +82,27 @@ vim +PlugInstall! +qall
 mkdir -p ~/.vim/backup
 mkdir -p ~/.vim/tmp
 
+
+# -----------------------------------------
+#           Claude Code mods
+# -----------------------------------------
+
+if command -v claude &> /dev/null; then
+	echo "- Setting up Claude Code mods"
+	if claude plugin marketplace list 2>/dev/null | grep -q "configs-mods"; then
+		printf "  ${BOLDGREEN}✓ Marketplace registered (configs-mods)${ENDCOLOR}\n"
+	else
+		claude plugin marketplace add "$BASEDIR/claude/mods" > /dev/null \
+			&& printf "  ${BOLDBLUE}✓ Registered marketplace (configs-mods)${ENDCOLOR}\n" \
+			|| printf "  ${ITALICRED}✗ Failed to register marketplace (configs-mods)${ENDCOLOR}\n"
+	fi
+	for mod in target-watch; do
+		if claude plugin list 2>/dev/null | grep -q "$mod@configs-mods"; then
+			printf "  ${BOLDGREEN}✓ Mod installed ($mod)${ENDCOLOR}\n"
+		else
+			claude plugin install "$mod@configs-mods" > /dev/null \
+				&& printf "  ${BOLDBLUE}✓ Installed mod ($mod)${ENDCOLOR}\n" \
+				|| printf "  ${ITALICRED}✗ Failed to install mod ($mod)${ENDCOLOR}\n"
+		fi
+	done
+fi

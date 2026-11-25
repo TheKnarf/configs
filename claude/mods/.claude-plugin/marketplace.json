@@ -1,0 +1,16 @@
+{
+  "name": "configs-mods",
+  "owner": {
+    "name": "TheKnarf"
+  },
+  "metadata": {
+    "description": "Personal Claude Code mods, versioned in ~/configs"
+  },
+  "plugins": [
+    {
+      "name": "target-watch",
+      "source": "./target-watch",
+      "description": "Warns the agent working in a folder when its target/ dir grows past a limit that tightens as free disk space shrinks"
+    }
+  ]
+}

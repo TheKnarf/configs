@@ -1,0 +1,5 @@
+{
+  "name": "target-watch",
+  "version": "0.1.0",
+  "description": "Warns the agent working in a folder when its target/ dir grows past a limit that tightens as free disk space shrinks"
+}
