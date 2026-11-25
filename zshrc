@@ -80,9 +80,6 @@ zstyle ':omz:update' mode disabled
 # untracked files is the classic prompt freezer in large repos / under load
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Tell the fzf plugin where fzf lives so it doesn't probe a dozen paths (~90ms)
-FZF_BASE=/opt/homebrew/opt/fzf
-
 HISTSIZE=50000
 SAVEHIST=50000
 
