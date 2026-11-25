@@ -62,8 +62,6 @@ path+=(
 )
 export PATH
 
-alias paths_debug="echo $PATH | sed 's/:/\n/g' | sort | uniq -c"
-
 # Ensure that MANPATH have a : in the beginning
 export MANPATH=":$MANPATH"
 
