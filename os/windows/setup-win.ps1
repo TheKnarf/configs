@@ -9,7 +9,6 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 choco install -y `
 	nodejs `
-	yarn `
 	slack `
 	googlechrome `
 	dotnetcore-sdk `
