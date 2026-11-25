@@ -17,7 +17,7 @@ fi
 # List of servers to use wakeonlan with
 # The list should be pairwise a name and the MAC address of the network card (seperated by tab)
 SERVERS=(
-	"nixos	10:7c:61:41:14:be"
+	"nixos	10:7c:61:41:14:bf"
 )
 
 # Use fzf to pick a server from the list
