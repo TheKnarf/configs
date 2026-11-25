@@ -21,8 +21,6 @@ filetype plugin indent on    "  required
 "   Settings for some bundles
 let g:user_emmet_mode='a'    "enable all function in all mode.
 
-let g:typescript_indent_disable = 1
-
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
