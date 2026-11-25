@@ -19,7 +19,6 @@
 		pkgs.jq
 		pkgs.cloc
 
-		pkgs.direnv
 		pkgs.git-annex
 		pkgs.eza
 		pkgs.bat
