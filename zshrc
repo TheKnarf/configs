@@ -50,6 +50,8 @@ typeset -U path
 path+=(
 	"$HOME/.bin"
 	"$HOME/.cargo/bin"      # Rust bin path
+	'/usr/sbin'             # Debian's zsh default PATH has no sbin
+	'/sbin'
 	'/snap/bin'             # Ubuntu snaps; zsh doesn't read /etc/profile.d
 )
 export PATH
