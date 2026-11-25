@@ -20,3 +20,6 @@
 	defaultBranch = main
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[include]
+	# Machine-local settings (not in this repo), loaded last so they can override
+	path = ~/.gitconfig.local

@@ -107,3 +107,5 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 
+# Source local config (secrets, machine-specific settings)
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

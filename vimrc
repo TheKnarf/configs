@@ -291,3 +291,7 @@ cmap w!! w !sudo tee % >/dev/null
 "- When vimrc is edited, reload it
 autocmd! bufwritepost .vimrc source %
 
+"- Machine-local settings (not in this repo), loaded last so they can override
+if filereadable(expand('~/.vimrc.local'))
+	source ~/.vimrc.local
+endif
