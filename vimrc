@@ -2,8 +2,8 @@
 "-               Setting up vim-plug
 "              - Vim plugin manager -
 "   ---------------------------------------------
-set nocompatible              "  be iMproved, required
-filetype off                  "  required
+" Vim only sets this automatically for the default vimrc, not with `vim -u`
+set nocompatible
 
 call plug#begin()
 
@@ -15,8 +15,6 @@ call plug#end()
 
 " Built-in EditorConfig support (Vim 9.1+); silent! for older Vims
 silent! packadd! editorconfig
-
-filetype plugin indent on    "  required
 
 "   Settings for some bundles
 let g:user_emmet_mode='a'    "enable all function in all mode.
@@ -45,9 +43,6 @@ set encoding=utf-8
 
 "- Colored output in cmake builds from vim
 let $CLICOLOR_FORCE=1
-
-"- Autoreload file that has changed
-set autoread
 
 "- Special characters
 set list
@@ -109,20 +104,15 @@ set background=dark
 match ErrorMsg '\%>119v.\+'
 
 "- Markdown
-autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd FileType markdown match ErrorMsg '\%>1000v.\+'
 autocmd FileType markdown setlocal spell spelllang=en_us
 
 "- Intuitive backspacing in insert mode
 set backspace=indent,eol,start
 
-"- File-type highlighting and configuration.
-"  Run :filetype (without args) to see what you may have
-"  to turn on yourself, or just set them all to be sure.
+"- Syntax highlighting (vim-plug's plug#end() already turns on filetype
+"  detection, plugins and indent)
 syntax on
-filetype on
-filetype plugin on
-filetype indent on
 
 "- Set change folding on double click
 nnoremap <2-LeftMouse> <esc>za
@@ -163,11 +153,6 @@ set backupcopy=yes
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
 
-"- or rather turn backup/swap off..
-"set nobackup
-"set nowb
-"set noswapfile
-
 "- Linenumber
 set number
 set numberwidth=6
@@ -181,7 +166,6 @@ set laststatus=2
 "- With a map leader it's possible to do extra key combinations
 "  like <leader>w saves the current file
 let mapleader = ","
-let g:mapleader = ","
 
 "- Fast saving
 nnoremap <leader>w :w!<cr>
