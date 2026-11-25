@@ -54,11 +54,8 @@ path+=(
 	'/usr/local/git/bin'
 	'/snap/bin'
 	"$HOME/.bin"
-	'./vendor/bin'          # PHP Composer bin folder
 	"$HOME/.cargo/bin"      # Rust bin path
 	"$GOPATH/bin"
-	"$HOME/.yarn/bin"
-	"$HOME/.config/yarn/global/node_modules/.bin"
 )
 export PATH
 
